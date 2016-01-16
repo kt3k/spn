@@ -1,4 +1,4 @@
-# spn v0.1.0
+# spn v0.1.0 (WIP)
 
 > **SP**rite e**N**gine
 
@@ -10,7 +10,7 @@
 
 - Dom layout in `position: aboslute` context
 - Handle multiple display sizes
-- Change image according to the current state of element
+- Change image according to the current state of component
 
 ## What `spn` doesn't do
 
@@ -24,6 +24,13 @@
 - Action Game
 - Role Playing Game
 - Game in general
+
+## Dependencies
+
+- jQuery
+- class-component
+- cc-event
+- Promise (es6)
 
 # Usage
 
