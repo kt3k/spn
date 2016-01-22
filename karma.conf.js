@@ -16,12 +16,13 @@ module.exports = function (config) {
             transform: [
                 require('browserify-istanbul')({
                     instrumenter: require('isparta'),
-                    ignore: ['** /spec/**']
+                    ignore: ['**/spec/**']
                 }),
                 require('babelify')
             ]
         },
-        reporters: ['progress'],
+        reporters: ['progress', 'coverage'],
+        coverageReporter: {type: 'lcov'},
         port: 9876,
         colors: true,
         logLevel: config.LOG_INFO,
