@@ -3,8 +3,7 @@ module.exports = function (config) {
         basePath: '',
         frameworks: ['mocha', 'chai', 'browserify'],
         files: [
-            'spec/helper0.js',
-            'spec/helper1.js',
+            'spec/helper.js',
             'spec/**/*.js'
         ],
         exclude: [
