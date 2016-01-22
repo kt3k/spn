@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "karma start karma.conf.js",
-    "lint": "souffle"
+    "lint": "souffle",
+    "dist:lib": "babel src -d lib"
   },
   "repository": {
     "type": "git",
@@ -51,9 +52,11 @@
   "souffle": {
     "parser": "babel-eslint",
     "globals": [
+      "beforeEach",
       "describe",
       "it",
-      "expect"
+      "expect",
+      "$"
     ]
   }
 }
