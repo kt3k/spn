@@ -1,3 +1,3 @@
-import {GridWalker} from './grid-walker'
+import GridWalker from './grid-walker'
 
-export class Sprite extends GridWalker {}
+export default class Sprite extends GridWalker {}

@@ -1,3 +1,3 @@
-import {Rect} from './rect'
+import Rect from './rect'
 
-export class DimensionFactory extends Rect {}
+export default class DimensionFactory extends Rect {}

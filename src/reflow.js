@@ -3,7 +3,7 @@
  *
  * @param {jQuery|HTMLElement} elem The element
  */
-export function reflow(elem) {
+export default function reflow(elem) {
 
     let offsetHeight = $(elem).get(0).offsetHeight
 

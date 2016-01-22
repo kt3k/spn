@@ -1,1 +1,1 @@
-export class Grid {}
+export default class Grid {}

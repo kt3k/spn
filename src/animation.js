@@ -1,5 +1,5 @@
-import {wait} from './wait'
-import {reflow} from './reflow'
+import wait from './wait'
+import reflow from './reflow'
 
 const ANIMATION_PROP_NAME = '-webkit-animation'
 

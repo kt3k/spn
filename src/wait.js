@@ -5,7 +5,7 @@
  * @param {object} result The value to resolve
  * @return {Promise}
  */
-export function wait(n, result) {
+export default function wait(n, result) {
 
     return new Promise(resolve => setTimeout(() => resolve(result), n))
 

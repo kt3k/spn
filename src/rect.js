@@ -1,1 +1,1 @@
-export class Rect {}
+export default class Rect {}

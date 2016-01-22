@@ -1,4 +1,4 @@
-import {reflow} from '../src/reflow'
+import reflow from '../src/reflow'
 
 describe('reflow', () => {
 

@@ -1,3 +1,3 @@
-import {Sprite} from './sprite'
+import Sprite from './sprite'
 
-export class CharSprite extends Sprite {}
+export default class CharSprite extends Sprite {}

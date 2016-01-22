@@ -1,3 +1,3 @@
-import {DimensionalBeing} from './dimensional-being'
+import Body from './body'
 
-export class GridWalker extends DimensionalBeing {}
+export default class GridWalker extends Body {}

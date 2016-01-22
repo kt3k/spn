@@ -1,1 +1,1 @@
-export class Being {}
+export default class Being {}
