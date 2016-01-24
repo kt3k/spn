@@ -9,5 +9,6 @@ import Image from './image'
 import Sprite from './sprite'
 import CharSprite from './char-sprite'
 import StaticSprite from './static-sprite'
+import * as DIRS from './dirs'
 
-export {wait, Posture, Rect, Grid, GridWalker, Animation, Image, Sprite, CharSprite, StaticSprite}
+export {wait, Posture, Rect, Grid, GridWalker, Animation, Image, Sprite, CharSprite, StaticSprite, DIRS}
