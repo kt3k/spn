@@ -7,3 +7,5 @@ npm-debug.log
 
 # dist
 /lib
+/spn.js
+/spn.min.js
