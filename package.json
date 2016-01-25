@@ -6,7 +6,7 @@
   "scripts": {
     "test": "karma start karma.conf.js",
     "lint": "souffle",
-    "clean": "rm -rf lib && rm spn.*",
+    "clean": "rimraf lib && rimraf spn.*",
     "dist": "npm-run-all dist:**",
     "dist:lib": "babel src -d lib",
     "dist:spn.js": "browserify -t babelify export/global.js > spn.js",
@@ -48,6 +48,7 @@
     "karma-mocha": "^0.2.1",
     "mocha": "^2.3.4",
     "npm-run-all": "^1.5.0",
+    "rimraf": "^2.5.1",
     "souffle-cli": "^3.0.0",
     "uglify-js": "^2.6.1"
   },
