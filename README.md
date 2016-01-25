@@ -48,7 +48,7 @@ class MyCharacter extends Sprite {
 $.cc.assign('my-character', MyCharacter)
 ```
 
-**NOTE:** You need to load $ (jquery) and class-component plugin globally.
+**NOTE:** You need to load $ (jquery) and class-component globally.
 
 Via file:
 
