@@ -6,11 +6,12 @@
   "scripts": {
     "test": "karma start karma.conf.js",
     "lint": "souffle",
+    "clean": "rm -rf lib && rm spn.*",
     "dist": "npm-run-all dist:**",
     "dist:lib": "babel src -d lib",
     "dist:spn.js": "browserify -t babelify export/global.js > spn.js",
     "dist:spn.min.js": "browserify -t babelify export/global.js | ./node_modules/.bin/uglifyjs --mangle --compress > spn.min.js",
-    "prepublish": "npm run dist"
+    "prepublish": "npm run clean && npm run dist"
   },
   "repository": {
     "type": "git",
