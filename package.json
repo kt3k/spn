@@ -6,9 +6,11 @@
   "scripts": {
     "test": "karma start karma.conf.js",
     "lint": "souffle",
+    "dist": "npm-run-all dist:**",
     "dist:lib": "babel src -d lib",
     "dist:spn.js": "browserify -t babelify export/global.js > spn.js",
-    "dist:spn.min.js": "browserify -t babelify export/global.js | ./node_modules/.bin/uglifyjs --mangle --compress > spn.min.js"
+    "dist:spn.min.js": "browserify -t babelify export/global.js | ./node_modules/.bin/uglifyjs --mangle --compress > spn.min.js",
+    "prepublish": "npm run dist"
   },
   "repository": {
     "type": "git",
@@ -44,6 +46,7 @@
     "karma-coverage": "^0.5.3",
     "karma-mocha": "^0.2.1",
     "mocha": "^2.3.4",
+    "npm-run-all": "^1.5.0",
     "souffle-cli": "^3.0.0",
     "uglify-js": "^2.6.1"
   },
