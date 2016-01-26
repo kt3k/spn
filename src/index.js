@@ -11,4 +11,4 @@ import CharSprite from './char-sprite'
 import StaticSprite from './static-sprite'
 import * as DIRS from './dirs'
 
-export {wait, Posture, Rect, Grid, GridWalker, Animation, Image, Sprite, CharSprite, StaticSprite, DIRS}
+export {wait, Posture, DimensionFactory, Rect, Grid, GridWalker, Animation, Image, Sprite, CharSprite, StaticSprite, DIRS}
