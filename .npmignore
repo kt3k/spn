@@ -1,0 +1,15 @@
+# coverage
+/coverage
+
+# es6
+/src
+
+# test
+/spec
+/karma.conf.js
+
+# export
+/export
+
+# dots
+.*
