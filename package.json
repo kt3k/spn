@@ -6,7 +6,7 @@
   "scripts": {
     "test": "karma start karma.conf.js",
     "lint": "souffle",
-    "clean": "rimraf lib && rimraf spn.*",
+    "clean": "rimraf lib && rimraf spn.* && rimraf coverage",
     "dist": "npm-run-all dist:**",
     "dist:lib": "babel src -d lib",
     "dist:spn.js": "browserify -t babelify export/global.js > spn.js",
