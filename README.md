@@ -1,4 +1,4 @@
-# spn v0.4.1 (WIP)
+# spn v0.5.0 (WIP)
 
 > **SP**rite e**N**gine
 
