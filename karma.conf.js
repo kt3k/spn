@@ -16,7 +16,7 @@ module.exports = function (config) {
             transform: [
                 require('browserify-istanbul')({
                     instrumenter: require('isparta'),
-                    ignore: ['**/spec/**']
+                    ignore: ['**/spec/**', '**/lib/**']
                 }),
                 require('babelify')
             ]

@@ -1,5 +1,6 @@
 import wait from './wait'
 import reflow from './reflow'
+import ifNumElse from './if-num-else'
 
 const ANIMATION_PROP_NAME = '-webkit-animation'
 
@@ -21,15 +22,16 @@ export default class Animation {
 
     /**
      * @param {jQuery} elem The dom element
+     * @param {number} dur The duration
      * @return {Promise}
      */
-    apply(elem) {
+    apply(elem, dur) {
 
         elem.css(ANIMATION_PROP_NAME, '')
 
         reflow(elem)
 
-        elem.css(ANIMATION_PROP_NAME, this.name + ' ' + this.duration + 'ms')
+        elem.css(ANIMATION_PROP_NAME, this.name + ' ' + ifNumElse(dur, this.duration) + 'ms')
 
         return wait(this.duration)
 
