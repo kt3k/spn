@@ -1,5 +1,4 @@
-import {Animation} from '../'
-import Being from '../src/being'
+import {Being, Animation} from '../src'
 
 describe('Being', () => {
     'use strict'
