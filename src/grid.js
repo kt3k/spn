@@ -62,7 +62,7 @@ export default class Grid {
      * @param {Number} y The vertical translate distance
      * @return {Grid}
      */
-    translated(x, y) {
+    translate(x, y) {
 
         return this.override({
             x: this.x + x,
@@ -80,20 +80,7 @@ export default class Grid {
      */
     shift(m, n) {
 
-        return this.translated(this.unitWidth * m, this.unitHeight * n)
-
-    }
-
-    /**
-     * Returns the subgrid devided by the given horizontal and vertical numbers.
-     *
-     * @deprecated
-     * @param {Number} [m=1] The horizontal division number
-     * @param {Number} [n=1] The vertical division number
-     */
-    subgrid(m = 1, n = 1) {
-
-        return this.scaleX(1 / m).scaleY(1 / n)
+        return this.translate(this.unitWidth * m, this.unitHeight * n)
 
     }
 

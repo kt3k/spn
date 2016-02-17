@@ -1,11 +1,11 @@
 import {Grid} from '../src'
 
-describe('Grid', function () {
+describe('Grid', () => {
     'use strict'
 
     let grid
 
-    beforeEach(function () {
+    beforeEach(() => {
 
         grid = new Grid({
 
@@ -20,9 +20,9 @@ describe('Grid', function () {
 
     })
 
-    describe('getX', function () {
+    describe('getX', () => {
 
-        it('gets the x position of the given grid x position', function () {
+        it('gets the x position of the given grid x position', () => {
 
             expect(grid.getX(-2)).to.equal(-100)
             expect(grid.getX(-1)).to.equal(0)
@@ -35,9 +35,9 @@ describe('Grid', function () {
 
     })
 
-    describe('getY', function () {
+    describe('getY', () => {
 
-        it('gets the y position of the given grid x position', function () {
+        it('gets the y position of the given grid x position', () => {
 
             expect(grid.getY(-2)).to.equal(0)
             expect(grid.getY(-1)).to.equal(100)
@@ -50,14 +50,63 @@ describe('Grid', function () {
 
     })
 
-    describe('shift', function () {
+    describe('shift', () => {
 
-        it('returns the shifted grid', function () {
+        it('returns the shifted grid', () => {
 
             expect(grid.shift(1, 2).getX(0)).to.equal(grid.getX(1))
             expect(grid.shift(1, 2).getX(1)).to.equal(grid.getX(2))
             expect(grid.shift(1, 2).getY(0)).to.equal(grid.getY(2))
             expect(grid.shift(1, 2).getY(1)).to.equal(grid.getY(3))
+
+        })
+
+    })
+
+    describe('scaleX', () => {
+        it('scales the width with the given scale value', () => {
+
+            expect(grid.scaleX(3).unitWidth).to.equal(300)
+            expect(grid.scaleX(3).unitHeight).to.equal(100)
+            expect(grid.scaleX(3).cellWidth).to.equal(150)
+            expect(grid.scaleX(3).cellHeight).to.equal(50)
+
+        })
+    })
+    describe('scaleY', () => {
+
+        it('scales the height with the given scale value', () => {
+
+            expect(grid.scaleY(3).unitWidth).to.equal(100)
+            expect(grid.scaleY(3).unitHeight).to.equal(300)
+            expect(grid.scaleY(3).cellWidth).to.equal(50)
+            expect(grid.scaleY(3).cellHeight).to.equal(150)
+
+        })
+
+    })
+
+    describe('scaleCellX', () => {
+
+        it('scales the width of the cell with the given scale value', () => {
+
+            expect(grid.scaleCellX(3).unitWidth).to.equal(100)
+            expect(grid.scaleCellX(3).unitHeight).to.equal(100)
+            expect(grid.scaleCellX(3).cellWidth).to.equal(150)
+            expect(grid.scaleCellX(3).cellHeight).to.equal(50)
+
+        })
+
+    })
+
+    describe('scaleCellY', () => {
+
+        it('scales the height of the cell with the given scale value', () => {
+
+            expect(grid.scaleCellY(3).unitWidth).to.equal(100)
+            expect(grid.scaleCellY(3).unitHeight).to.equal(100)
+            expect(grid.scaleCellY(3).cellWidth).to.equal(50)
+            expect(grid.scaleCellY(3).cellHeight).to.equal(150)
 
         })
 
