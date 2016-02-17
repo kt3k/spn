@@ -87,7 +87,7 @@ export default class Rect {
      * @param {number} scale The scale rate
      * @return {Rect}
      */
-    scaleTop(scale = 1) {
+    scaleTop(scale) {
 
         return this.cutBottom(this.height() * scale)
 
@@ -99,7 +99,7 @@ export default class Rect {
      * @param {number} scale The scale rate
      * @return {Rect}
      */
-    scaleLeft(scale = 1) {
+    scaleLeft(scale) {
 
         return this.cutRight(this.width() * scale)
 
@@ -111,7 +111,7 @@ export default class Rect {
      * @param {number} scale The scale rate
      * @return {Rect}
      */
-    scaleRight(scale = 1) {
+    scaleRight(scale) {
 
         return this.cutLeft(this.width() * scale)
 
@@ -123,7 +123,7 @@ export default class Rect {
      * @param {number} scale The scale rate
      * @return {Rect}
      */
-    scaleBottom(scale = 1) {
+    scaleBottom(scale) {
 
         return this.cutTop(this.height() * scale)
 
@@ -132,11 +132,12 @@ export default class Rect {
     /**
      * Returns a shifted rect by the given horizontal and vertical numbers.
      *
+     * @protected
      * @param {number} [m=0] The horizontal number
      * @param {number} [n=0] The vertical number
      * @return {Rect}
      */
-    shift(m = 0, n = 0) {
+    shift(m, n) {
 
         const width = this.width()
         const height = this.height()

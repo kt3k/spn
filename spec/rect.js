@@ -259,10 +259,66 @@ describe('Rect', () => {
 
     })
 
-    describe('extCutTop', () => {})
-    describe('extCutLeft', () => {})
-    describe('extCutRight', () => {})
-    describe('extCutBottom', () => {})
+    describe('extCutTop', () => {
+
+        it('cuts out the next area of the top side of the rect with the given height', () => {
+
+            const cut = rect.extCutTop(50)
+
+            expect(cut.top).to.equal(50)
+            expect(cut.left).to.equal(300)
+            expect(cut.right).to.equal(500)
+            expect(cut.bottom).to.equal(100)
+
+        })
+
+    })
+
+    describe('extCutLeft', () => {
+
+        it('cuts out the next area of the left side of the rect with the given width', () => {
+
+            const cut = rect.extCutLeft(50)
+
+            expect(cut.top).to.equal(100)
+            expect(cut.left).to.equal(250)
+            expect(cut.right).to.equal(300)
+            expect(cut.bottom).to.equal(600)
+
+
+        })
+
+    })
+
+    describe('extCutRight', () => {
+
+        it('cuts out the next area of the right side of the rect with the given width', () => {
+
+            const cut = rect.extCutRight(50)
+
+            expect(cut.top).to.equal(100)
+            expect(cut.left).to.equal(500)
+            expect(cut.right).to.equal(550)
+            expect(cut.bottom).to.equal(600)
+
+        })
+
+    })
+
+    describe('extCutBottom', () => {
+
+        it('cuts out the next area of the bottom side of the rect with the given height', () => {
+
+            const cut = rect.extCutBottom(50)
+
+            expect(cut.top).to.equal(600)
+            expect(cut.left).to.equal(300)
+            expect(cut.right).to.equal(500)
+            expect(cut.bottom).to.equal(650)
+
+        })
+
+    })
 
     describe('toGrid', () => {
 
