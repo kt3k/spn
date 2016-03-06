@@ -345,6 +345,58 @@ export default class Rect {
     }
 
     /**
+     * Excludes the margin of the given sides.
+     *
+     * @param {number} top The top margin
+     * @param {number} left The left margin
+     * @param {number} right The right margin
+     * @param {number} bottom The bottom margin
+     */
+    margin({top, left, right, bottom}) {
+
+        return new Rect({
+            top: this.top + ifNumElse(top, 0),
+            left: this.left + ifNumElse(left, 0),
+            right: this.right - ifNumElse(right, 0),
+            bottom: this.bottom - ifNumElse(bottom, 0)
+        })
+    }
+
+    /**
+     * Retruns the rect of the size of the current window.
+     *
+     * @return {Rect}
+     */
+    static windowAsRect() {
+
+        return new Rect({
+            top: 0,
+            left: 0,
+            right: $(window).width(),
+            bottom: $(window).height()
+        })
+
+    }
+
+    /**
+     * Gets the best (biggest) available rect inside this rect of the given horizontal and vertial ratio.
+     *
+     * @param {number} horizontal The horizontal ratio
+     * @param {number} vertical The vertical ratio
+     * @return {Rect}
+     */
+    getBestRect({horizontal, vertical}) {
+
+        return new Rect({
+            top: 0,
+            left: 0,
+            right: horizontal,
+            bottom: vertical
+        }).similarInnerTangent(this)
+
+    }
+
+    /**
      * Returns a dual grid
      *
      * @return {Grid}

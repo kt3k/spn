@@ -351,6 +351,62 @@ describe('Rect', () => {
         })
     })
 
+    describe('margin', () => {
+
+        it('returns a new rect with the given margins added', () => {
+
+            const margined = rect.margin({
+                top: 10,
+                left: 10,
+                right: 10,
+                bottom: 10
+            })
+
+            expect(margined.top).to.equal(110)
+            expect(margined.left).to.equal(310)
+            expect(margined.right).to.equal(490)
+            expect(margined.bottom).to.equal(590)
+
+        })
+
+    })
+
+    describe('windowAsRect', () => {
+
+        it('returns a rect of the size of the current window', () => {
+
+            const rect = Rect.windowAsRect()
+
+            expect(rect.top).to.equal(0)
+            expect(rect.left).to.equal(0)
+            expect(rect.right).to.equal($(window).width())
+            expect(rect.bottom).to.equal($(window).height())
+
+        })
+
+    })
+
+    describe('getBestRect', () => {
+
+        it('gets the best available rect inside it with the given horizontal and vertical ratios', () => {
+
+            const best = rect.getBestRect({horizontal: 1, vertical: 2})
+
+            expect(best.top).to.equal(150)
+            expect(best.left).to.equal(300)
+            expect(best.right).to.equal(500)
+            expect(best.bottom).to.equal(550)
+
+            const best0 = rect.getBestRect({horizontal: 1, vertical: 5})
+
+            expect(best0.top).to.equal(100)
+            expect(best0.left).to.equal(350)
+            expect(best0.right).to.equal(450)
+            expect(best0.bottom).to.equal(600)
+
+        })
+    })
+
     describe('toGrid', () => {
 
         it('returns a grid which has origin at the center of the rect', () => {
