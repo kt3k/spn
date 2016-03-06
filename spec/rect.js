@@ -285,7 +285,6 @@ describe('Rect', () => {
             expect(cut.right).to.equal(300)
             expect(cut.bottom).to.equal(600)
 
-
         })
 
     })
