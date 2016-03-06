@@ -1,4 +1,5 @@
 import ifNumElse from './if-num-else'
+import Rect from './rect'
 
 /**
  * Posture is the model of the information about how the Body is placed and arranged to its position.
@@ -178,26 +179,29 @@ export default class Posture {
     /**
      * Returns an posture of the similar rectangle which is the inner tangent of the rectangle of the given width and height.
      *
+     * @deprecated in favour of Rect.similarInnerTangent
      * @param {Number} width The width of the target outer rectangle
      * @param {Number} height The height of the target outer rectangle
      * @return {Posture}
      */
     similarInnerTangent(width, height) {
 
-        if (width / height > this.width / this.height) {
-
-            width = height * this.width / this.height
-
-        } else {
-
-            height = width * this.height / this.width
-
-        }
+        const tangent = new Rect({
+            top: 0,
+            left: 0,
+            right: this.width,
+            bottom: this.height
+        }).similarInnerTangent(new Rect({
+            top: 0,
+            left: 0,
+            right: width,
+            bottom: height
+        }))
 
         return new Posture({
 
-            width: width,
-            height: height,
+            width: tangent.width(),
+            height: tangent.height(),
             ratioX: this.ratioX,
             ratioY: this.ratioY,
             marginX: this.marginX,
@@ -219,10 +223,20 @@ export default class Posture {
      */
     fitInto(width, height) {
 
-        var innerTangent = this.similarInnerTangent(width, height)
+        const tangent = new Rect({
+            top: 0,
+            left: 0,
+            right: this.width,
+            bottom: this.height
+        }).similarInnerTangent(new Rect({
+            top: 0,
+            left: 0,
+            right: width,
+            bottom: height
+        }))
 
-        this.width = innerTangent.width
-        this.height = innerTangent.height
+        this.width = tangent.width()
+        this.height = tangent.height()
 
     }
 
