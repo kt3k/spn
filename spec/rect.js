@@ -320,6 +320,37 @@ describe('Rect', () => {
 
     })
 
+    describe('similarInnerTangent', () => {
+
+        it('returns a similar rect which is an inner tangent of the given rect', () => {
+
+            const tangent = rect.similarInnerTangent(new Rect({
+                top: 0,
+                left: 0,
+                right: 100,
+                bottom: 50
+            }))
+
+            expect(tangent.top).to.equal(0)
+            expect(tangent.left).to.equal(40)
+            expect(tangent.right).to.equal(60)
+            expect(tangent.bottom).to.equal(50)
+
+            const tangent0 = rect.similarInnerTangent(new Rect({
+                top: 0,
+                left: 0,
+                right: 2000,
+                bottom: 10000
+            }))
+
+            expect(tangent0.top).to.equal(2500)
+            expect(tangent0.left).to.equal(0)
+            expect(tangent0.right).to.equal(2000)
+            expect(tangent0.bottom).to.equal(7500)
+
+        })
+    })
+
     describe('toGrid', () => {
 
         it('returns a grid which has origin at the center of the rect', () => {

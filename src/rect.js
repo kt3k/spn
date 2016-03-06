@@ -312,6 +312,39 @@ export default class Rect {
     }
 
     /**
+     * Returns the similar rect which is an inner tangent of (and at the center of) the given rect.
+     *
+     * @param {Rect} rect The target rect
+     * @return {Rect}
+     */
+    similarInnerTangent(rect) {
+
+        let horizontalMargin, verticalMargin
+
+        if (rect.width() / rect.height() > this.width() / this.height()) {
+
+            const width = this.width() * rect.height() / this.height()
+            horizontalMargin = (rect.width() - width) / 2
+            verticalMargin = 0
+
+        } else {
+
+            const height = this.height() * rect.width() / this.width()
+            horizontalMargin = 0
+            verticalMargin = (rect.height() - height) / 2
+
+        }
+
+        return new Rect({
+            top: rect.top + verticalMargin,
+            left: rect.left + horizontalMargin,
+            right: rect.right - horizontalMargin,
+            bottom: rect.bottom - verticalMargin
+        })
+
+    }
+
+    /**
      * Returns a dual grid
      *
      * @return {Grid}
