@@ -369,12 +369,7 @@ export default class Rect {
      */
     static windowAsRect() {
 
-        return new Rect({
-            top: 0,
-            left: 0,
-            right: $(window).width(),
-            bottom: $(window).height()
-        })
+        return Rect.ofSize($(window).width(), $(window).height())
 
     }
 
@@ -387,12 +382,24 @@ export default class Rect {
      */
     getBestRect({horizontal, vertical}) {
 
+        return Rect.ofSize(horizontal, vertical).similarInnerTangent(this)
+
+    }
+
+    /**
+     * Creates the rect of the give size.
+     *
+     * @param {number} width The width
+     * @param {number} height The height
+     */
+    static ofSize(width, height) {
+
         return new Rect({
             top: 0,
             left: 0,
-            right: horizontal,
-            bottom: vertical
-        }).similarInnerTangent(this)
+            right: width,
+            bottom: height
+        })
 
     }
 
