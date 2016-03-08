@@ -1,6 +1,8 @@
 import Rect from './rect'
 /**
  * Interval model represents the interval on the line.
+ *
+ * Interval is immutable.
  */
 export default class Interval {
 
@@ -9,6 +11,10 @@ export default class Interval {
      * @param {number} low The low of the interval
      */
     constructor(high, low) {
+
+        if (high < low) {
+            [high, low] = [low, high]
+        }
 
         this.high = high
         this.low = low

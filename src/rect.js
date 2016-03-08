@@ -4,6 +4,8 @@ import Interval from './interval'
 
 /**
  * Rect model represents the static rectangle in a screen.
+ *
+ * Rect is immutable.
  */
 export default class Rect {
 
