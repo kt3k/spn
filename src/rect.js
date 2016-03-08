@@ -1,5 +1,6 @@
 import Grid from './grid'
 import ifNumElse from './if-num-else'
+import Interval from './interval'
 
 /**
  * Rect model represents the static rectangle in a screen.
@@ -11,13 +12,40 @@ export default class Rect {
      * @param {number} right The right position
      * @param {number} bottom The bottom position
      * @param {number} left The left position
+     * @param {Interval} horizontal The horizontal interval
+     * @param {Interval} vertical The vertical interval
      */
-    constructor({top, right, bottom, left}) {
+    constructor({top, right, bottom, left, horizontal, vertical}) {
 
-        this.top = top
-        this.right = right
-        this.bottom = bottom
-        this.left = left
+        this.horizontal = horizontal || new Interval(right, left)
+        this.vertical = horizontal || new Interval(bottom, top)
+
+    }
+
+    get top() {
+        return this.vertical.low
+    }
+
+    get bottom() {
+        return this.vertical.high
+    }
+
+    get left() {
+        return this.horizontal.low
+    }
+
+    get right() {
+        return this.horizontal.high
+    }
+
+    static ofIntervals(horizontal, vertical) {
+
+        return new Rect({
+            top: vertical.low,
+            left: horizontal.low,
+            right: horizontal.high,
+            bottom: vertical.high
+        })
 
     }
 
@@ -28,7 +56,7 @@ export default class Rect {
      */
     width() {
 
-        return this.right - this.left
+        return this.horizontal.width()
 
     }
 
@@ -39,7 +67,7 @@ export default class Rect {
      */
     height() {
 
-        return this.bottom - this.top
+        return this.vertical.width()
 
     }
 
@@ -48,7 +76,7 @@ export default class Rect {
      */
     centerX() {
 
-        return (this.left + this.right) / 2
+        return this.horizontal.middle()
 
     }
 
@@ -57,27 +85,7 @@ export default class Rect {
      */
     centerY() {
 
-        return (this.top + this.bottom) / 2
-
-    }
-
-    /**
-     * Returns a new rect whose parameters are overrided by the given object.
-     *
-     * @param {number} [top] The top
-     * @param {number} [left] The left
-     * @param {number} [right] The right
-     * @param {number} [bottom] The bottom
-     * @return {Rect}
-     */
-    override({top, left, right, bottom}) {
-
-        return new Rect({
-            top: ifNumElse(top, this.top),
-            left: ifNumElse(left, this.left),
-            right: ifNumElse(right, this.right),
-            bottom: ifNumElse(bottom, this.bottom)
-        })
+        return this.vertical.middle()
 
     }
 
@@ -130,28 +138,6 @@ export default class Rect {
     }
 
     /**
-     * Returns a shifted rect by the given horizontal and vertical numbers.
-     *
-     * @protected
-     * @param {number} [m=0] The horizontal number
-     * @param {number} [n=0] The vertical number
-     * @return {Rect}
-     */
-    shift(m, n) {
-
-        const width = this.width()
-        const height = this.height()
-
-        return this.override({
-            top: this.top + n * height,
-            left: this.left + m * width,
-            right: this.right + m * width,
-            bottom: this.bottom + n * height
-        })
-
-    }
-
-    /**
      * Shifts up by the given number of units.
      *
      * @param {number} n The number to shift
@@ -159,7 +145,7 @@ export default class Rect {
      */
     shiftUp(n = 1) {
 
-        return this.shift(0, -n)
+        return this.horizontal.by(this.vertical.shift(-n))
 
     }
 
@@ -171,7 +157,7 @@ export default class Rect {
      */
     shiftLeft(n = 1) {
 
-        return this.shift(-n, 0)
+        return this.horizontal.shift(-n).by(this.vertical)
 
     }
 
@@ -183,7 +169,7 @@ export default class Rect {
      */
     shiftRight(n = 1) {
 
-        return this.shift(n, 0)
+        return this.horizontal.shift(n).by(this.vertical)
 
     }
 
@@ -195,7 +181,7 @@ export default class Rect {
      */
     shiftDown(n = 1) {
 
-        return this.shift(0, n)
+        return this.horizontal.by(this.vertical.shift(n))
 
     }
 
@@ -207,7 +193,7 @@ export default class Rect {
      */
     cutTop(height) {
 
-        return this.override({bottom: this.top + height})
+        return this.horizontal.by(this.vertical.cutLow(height))
 
     }
 
@@ -219,7 +205,7 @@ export default class Rect {
      */
     cutLeft(width) {
 
-        return this.override({right: this.left + width})
+        return this.horizontal.cutLow(width).by(this.vertical)
 
     }
 
@@ -231,7 +217,7 @@ export default class Rect {
      */
     cutRight(width) {
 
-        return this.override({left: this.right - width})
+        return this.horizontal.cutHigh(width).by(this.vertical)
 
     }
 
@@ -243,7 +229,7 @@ export default class Rect {
      */
     cutBottom(height) {
 
-        return this.override({top: this.bottom - height})
+        return this.horizontal.by(this.vertical.cutHigh(height))
 
     }
 
@@ -335,12 +321,7 @@ export default class Rect {
 
         }
 
-        return new Rect({
-            top: rect.top + verticalMargin,
-            left: rect.left + horizontalMargin,
-            right: rect.right - horizontalMargin,
-            bottom: rect.bottom - verticalMargin
-        })
+        return rect.horizontal.margin(horizontalMargin, horizontalMargin).by(rect.vertical.margin(verticalMargin, verticalMargin))
 
     }
 
@@ -354,12 +335,9 @@ export default class Rect {
      */
     margin({top, left, right, bottom}) {
 
-        return new Rect({
-            top: this.top + ifNumElse(top, 0),
-            left: this.left + ifNumElse(left, 0),
-            right: this.right - ifNumElse(right, 0),
-            bottom: this.bottom - ifNumElse(bottom, 0)
-        })
+        return this.horizontal.margin(ifNumElse(right, 0), ifNumElse(left, 0))
+            .by(this.vertical.margin(ifNumElse(bottom, 0), ifNumElse(top, 0)))
+
     }
 
     /**
@@ -374,7 +352,7 @@ export default class Rect {
     }
 
     /**
-     * Gets the best (biggest) available rect inside this rect of the given horizontal and vertial ratio.
+     * Gets the best (biggest) available rect inside this rect of the given horizontal and vertical ratio.
      *
      * @param {number} horizontal The horizontal ratio
      * @param {number} vertical The vertical ratio
@@ -394,12 +372,7 @@ export default class Rect {
      */
     static ofSize(width, height) {
 
-        return new Rect({
-            top: 0,
-            left: 0,
-            right: width,
-            bottom: height
-        })
+        return Interval.ofSize(width).by(Interval.ofSize(height))
 
     }
 
