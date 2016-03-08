@@ -18,7 +18,7 @@ export default class Rect {
     constructor({top, right, bottom, left, horizontal, vertical}) {
 
         this.horizontal = horizontal || new Interval(right, left)
-        this.vertical = horizontal || new Interval(bottom, top)
+        this.vertical = vertical || new Interval(bottom, top)
 
     }
 
@@ -41,10 +41,8 @@ export default class Rect {
     static ofIntervals(horizontal, vertical) {
 
         return new Rect({
-            top: vertical.low,
-            left: horizontal.low,
-            right: horizontal.high,
-            bottom: vertical.high
+            horizontal: horizontal,
+            vertical: vertical
         })
 
     }
@@ -52,7 +50,7 @@ export default class Rect {
     /**
      * Gets the width.
      *
-     * @return {Number}
+     * @return {number}
      */
     width() {
 
@@ -63,7 +61,7 @@ export default class Rect {
     /**
      * Gets the height.
      *
-     * @return {Number}
+     * @return {number}
      */
     height() {
 
@@ -73,6 +71,8 @@ export default class Rect {
 
     /**
      * Gets the horizontal center.
+     *
+     * @return {number}
      */
     centerX() {
 
@@ -82,6 +82,8 @@ export default class Rect {
 
     /**
      * Gets the vertical center.
+     *
+     * @return {number}
      */
     centerY() {
 
