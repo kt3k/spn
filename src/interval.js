@@ -70,26 +70,6 @@ export default class Interval {
     }
 
     /**
-     * @param {number} scale
-     * @return {Interval}
-     */
-    scaleHigh(scale) {
-
-        return this.cutLow(this.width() * scale)
-
-    }
-
-    /**
-     * @param {number} scale
-     * @return {Interval}
-     */
-    scaleLow(scale) {
-
-        return this.cutHigh(this.width() * scale)
-
-    }
-
-    /**
      * Returns an interval which is shifted the given amount.
      *
      * @param {number} shift The amount of shift, n means shift higher position by its size * n
