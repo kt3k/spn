@@ -12,28 +12,42 @@ export default class Rect {
      * @param {number} right The right position
      * @param {number} bottom The bottom position
      * @param {number} left The left position
-     * @param {Interval} horizontal The horizontal interval
-     * @param {Interval} vertical The vertical interval
      */
-    constructor({top, right, bottom, left, horizontal, vertical}) {
+    constructor({top, right, bottom, left}) {
 
-        this.horizontal = horizontal || new Interval(right, left)
-        this.vertical = vertical || new Interval(bottom, top)
+        this.horizontal = new Interval(right, left)
+        this.vertical = new Interval(bottom, top)
 
     }
 
+    /**
+     * Gets the top position.
+     * @return {number}
+     */
     get top() {
         return this.vertical.low
     }
 
+    /**
+     * Gets the bottom position.
+     * @return {number}
+     */
     get bottom() {
         return this.vertical.high
     }
 
+    /**
+     * Gets the left position.
+     * @return {number}
+     */
     get left() {
         return this.horizontal.low
     }
 
+    /**
+     * Gets the right position.
+     * @return {number}
+     */
     get right() {
         return this.horizontal.high
     }
@@ -41,8 +55,10 @@ export default class Rect {
     static ofIntervals(horizontal, vertical) {
 
         return new Rect({
-            horizontal: horizontal,
-            vertical: vertical
+            top: vertical.low,
+            bottom: vertical.high,
+            left: horizontal.low,
+            right: horizontal.high
         })
 
     }
@@ -307,23 +323,22 @@ export default class Rect {
      */
     similarInnerTangent(rect) {
 
-        let horizontalMargin, verticalMargin
+        let horizontal = rect.horizontal
+        let vertical = rect.vertical
 
         if (rect.width() / rect.height() > this.width() / this.height()) {
 
-            const width = this.width() * rect.height() / this.height()
-            horizontalMargin = (rect.width() - width) / 2
-            verticalMargin = 0
+            const horizontalMargin = (rect.width() - this.width() * rect.height() / this.height()) / 2
+            horizontal = horizontal.margin(horizontalMargin, horizontalMargin)
 
         } else {
 
-            const height = this.height() * rect.width() / this.width()
-            horizontalMargin = 0
-            verticalMargin = (rect.height() - height) / 2
+            const verticalMargin = (rect.height() - this.height() * rect.width() / this.width()) / 2
+            vertical = vertical.margin(verticalMargin, verticalMargin)
 
         }
 
-        return rect.horizontal.margin(horizontalMargin, horizontalMargin).by(rect.vertical.margin(verticalMargin, verticalMargin))
+        return horizontal.by(vertical)
 
     }
 
