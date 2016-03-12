@@ -177,6 +177,42 @@ export default class Posture {
     }
 
     /**
+     * Gets the horizontal position when it is placed in the given rect.
+     *
+     * @param {Rect} rect
+     * @return {number}
+     */
+    getXInRect(rect) {
+
+        return rect.left + rect.width() * this.ratioX
+
+    }
+
+    /**
+     * Gets the vertical position when it is placed in the given rect.
+     *
+     * @param {Rect} rect
+     * @return {number}
+     */
+    getYInRect(rect) {
+
+        return rect.top + rect.height() * this.ratioY
+
+    }
+
+    /**
+     * Fits the size to the size of the given rect.
+     *
+     * @param {Rect} rect
+     */
+    fitToRect(rect) {
+
+        this.width = rect.width()
+        this.height = rect.height()
+
+    }
+
+    /**
      * Scales the rectangle to fit as an inner tangent of the rectangle of the given width and height.
      *
      * @param {Number} width The width of the target outer rectangle

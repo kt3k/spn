@@ -1,4 +1,4 @@
-import {Posture} from '../src'
+import {Posture, Rect} from '../src'
 
 describe('Posture', () => {
     'use strict'
@@ -131,6 +131,60 @@ describe('Posture', () => {
             expect(posture.centerY(100)).to.equal(50)
             expect(posture.centerY(200)).to.equal(150)
             expect(posture.centerY(300)).to.equal(250)
+
+        })
+
+    })
+
+    describe('getXInRect', () => {
+
+        it('gets the horizontal position when the posture is put in the rect', () => {
+
+            const rect = new Rect({
+                top: 100,
+                left: 100,
+                right: 200,
+                bottom: 200
+            })
+
+            expect(posture.getXInRect(rect)).to.equal(150)
+
+        })
+
+    })
+
+    describe('getYInRect', () => {
+
+        it('gets the horizontal position when the posture is put in the rect', () => {
+
+            const rect = new Rect({
+                top: 100,
+                left: 100,
+                right: 200,
+                bottom: 200
+            })
+
+            expect(posture.getYInRect(rect)).to.equal(175)
+
+        })
+
+    })
+
+    describe('fitToRect', () => {
+
+        it('fits the size of the posture to the size of the given rect', () => {
+
+            const rect = new Rect({
+                top: 100,
+                left: 100,
+                right: 1800,
+                bottom: 2300
+            })
+
+            posture.fitToRect(rect)
+
+            expect(posture.width).to.equal(rect.width())
+            expect(posture.height).to.equal(rect.height())
 
         })
 
