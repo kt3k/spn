@@ -8,7 +8,7 @@
     "lint": "souffle",
     "clean": "rimraf lib && rimraf spn.* && rimraf coverage",
     "doc": "esdoc -c esdoc.json",
-    "codecov": "codecov < coverage/*/lcov.info",
+    "codecov": "cat coverage/*/lcov.info | codecov",
     "dist": "npm-run-all dist:**",
     "dist:lib": "babel src -d lib",
     "dist:spn.js": "browserify -t babelify export/global.js > spn.js",
