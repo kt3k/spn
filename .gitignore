@@ -9,3 +9,6 @@ npm-debug.log
 /lib
 /spn.js
 /spn.min.js
+
+# doc
+/doc
