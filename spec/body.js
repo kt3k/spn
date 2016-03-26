@@ -100,40 +100,13 @@ describe('Body', () => {
 
     })
 
-    describe('rightLimit', () => {
+    describe('{top,left,right,bottom}Limit', () => {
 
-        it('returns the right limit x position', () => {
+        it('returns the limit coordinates', () => {
 
             expect(body.rightLimit()).to.equal(40)
-
-        })
-
-    })
-
-    describe('leftLimit', () => {
-
-        it('returns the left limit x position', () => {
-
             expect(body.leftLimit()).to.equal(30)
-
-        })
-
-    })
-
-    describe('topLimit', () => {
-
-        it('returns the top limit y position', () => {
-
             expect(body.topLimit()).to.equal(40)
-
-        })
-
-    })
-
-    describe('bottomLimit', () => {
-
-        it('returns the bottom limit y position', () => {
-
             expect(body.bottomLimit()).to.equal(60)
 
         })
