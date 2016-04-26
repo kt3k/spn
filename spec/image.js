@@ -1,4 +1,5 @@
 import {Image} from '../src'
+import {img as imgTag} from 'dom-gen'
 
 describe('Image', () => {
     'use strict'
@@ -7,7 +8,7 @@ describe('Image', () => {
 
         it('applies the src and style to the jquery img element', () => {
 
-            const img = $('<img />')
+            const img = imgTag()
 
             new Image('foo.svg', false, false).apply(img)
             expect(img.attr('src')).to.equal('foo.svg')

@@ -1,4 +1,5 @@
 import {Being, Animation} from '../src'
+import {div} from 'dom-gen'
 
 describe('Being', () => {
     'use strict'
@@ -7,7 +8,7 @@ describe('Being', () => {
 
     beforeEach(() => {
 
-        elem = $('<div />')
+        elem = div()
 
         being = new Being(elem)
 

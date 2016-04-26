@@ -1,4 +1,5 @@
 import {reflow} from '../src'
+import {div} from 'dom-gen'
 
 describe('reflow', () => {
 
@@ -6,7 +7,7 @@ describe('reflow', () => {
 
     beforeEach(() => {
 
-        elem = $('<div />')
+        elem = div()
 
     })
 

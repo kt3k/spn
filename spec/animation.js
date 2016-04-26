@@ -1,4 +1,5 @@
 import {Animation} from '../src'
+import {div} from 'dom-gen'
 
 describe('Animation', () => {
 
@@ -20,7 +21,7 @@ describe('Animation', () => {
             setTimeout(() => (called300 = true), 300)
             setTimeout(() => (called500 = true), 500)
 
-            return anim.apply($('<div />')).then(() => {
+            return anim.apply(div()).then(() => {
 
                 expect(called300).to.be.true
                 expect(called500).to.be.false
@@ -31,7 +32,7 @@ describe('Animation', () => {
 
         it('sets given animation to the given elem', () => {
 
-            const elem = $('<div />')
+            const elem = div()
 
             anim.apply(elem)
 

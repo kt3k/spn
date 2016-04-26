@@ -1,5 +1,6 @@
 import Body from '../src/body'
 import Rect from '../src/rect'
+import {div} from 'dom-gen'
 
 describe('Body', () => {
 
@@ -23,7 +24,7 @@ describe('Body', () => {
 
     beforeEach(() => {
 
-        elem = $('<div />')
+        elem = div()
 
         body = new MyBody(elem)
 
@@ -34,7 +35,7 @@ describe('Body', () => {
 
     it('has default width=100 and height=100', () => {
 
-        const body = new Body($('<div />'))
+        const body = new Body(div())
 
         body.updateElem()
 
@@ -89,7 +90,7 @@ describe('Body', () => {
 
         it('returns the actual width and height, respectively', () => {
 
-            const body = new MarginedBody($('<div />'))
+            const body = new MarginedBody(div())
 
             body.updateElem()
 
