@@ -1,4 +1,4 @@
-# spn v0.16.0 (WIP) [![Circle CI](https://circleci.com/gh/kt3k/spn.svg?style=svg)](https://circleci.com/gh/kt3k/spn) [![codecov.io](https://codecov.io/github/kt3k/spn/coverage.svg?branch=master)](https://codecov.io/github/kt3k/spn?branch=master)
+# spn v1.0.0 (WIP) [![Circle CI](https://circleci.com/gh/kt3k/spn.svg?style=svg)](https://circleci.com/gh/kt3k/spn) [![codecov.io](https://codecov.io/github/kt3k/spn/coverage.svg?branch=master)](https://codecov.io/github/kt3k/spn?branch=master)
 
 > **SP**rite e**N**gine
 
