@@ -44,7 +44,7 @@
     "dom-gen": "^2.1.0",
     "es6-promise": "^3.0.2",
     "esdoc": "^0.4.6",
-    "install": "^0.6.1",
+    "install": "^0.7.1",
     "isparta": "^4.0.0",
     "jquery": "^2.2.0",
     "karma": "^0.13.19",
