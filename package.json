@@ -39,7 +39,7 @@
     "browserify": "^13.0.0",
     "browserify-istanbul": "^2.0.0",
     "chai": "^3.4.1",
-    "class-component": "^5.4.2",
+    "class-component": "^6.0.0",
     "codecov.io": "^0.1.6",
     "dom-gen": "^2.1.0",
     "es6-promise": "^3.0.2",
