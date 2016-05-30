@@ -57,13 +57,6 @@ describe('Body', () => {
 
         })
 
-        it('sets the elem position as absolute', () => {
-
-            body.updateElem()
-            expect(body.elem.css('position')).to.equal('absolute')
-
-        })
-
         it('sets the duration of the transition if given', () => {
 
             body.updateElem(345)

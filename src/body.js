@@ -38,8 +38,6 @@ export default class Body extends Being {
             marginY: this.marginY()
         })
 
-        this.elem.css('position', 'absolute') // Set `position: absolute`, this class doesn't work without this.
-
     }
 
     /**
