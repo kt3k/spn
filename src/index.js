@@ -11,9 +11,6 @@ import GridWalker from './grid-walker'
 import Animation from './animation'
 import Image from './image'
 import DirStateImageMap from './dir-state-image-map'
-import Sprite from './sprite'
-import CharSprite from './char-sprite'
-import StaticSprite from './static-sprite'
 import * as DIRS from './dirs'
 
-export {wait, reflow, ifNumElse, Being, Body, Posture, LayoutFactory, Rect, Grid, GridWalker, Animation, Image, DirStateImageMap, Sprite, CharSprite, StaticSprite, DIRS}
+export {wait, reflow, ifNumElse, Being, Body, Posture, LayoutFactory, Rect, Grid, GridWalker, Animation, Image, DirStateImageMap, DIRS}
