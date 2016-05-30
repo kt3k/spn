@@ -36,9 +36,8 @@ export default class GridWalker extends Body {
         return 1
     }
 
-    constructor(elem) {
-
-        super(elem)
+    constructor() {
+        super()
 
         /**
          * @property {number} m The horizontal grid position

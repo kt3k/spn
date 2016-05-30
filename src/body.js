@@ -9,12 +9,8 @@ import reflow from './reflow'
  */
 export default class Body extends Being {
 
-    /**
-     * @param {jQuery} elem The element
-     */
-    constructor(elem) {
-
-        super(elem)
+    constructor() {
+        super()
 
         /**
          * @property {Number} x sprite's x coordinate value

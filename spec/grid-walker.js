@@ -5,11 +5,17 @@ describe('GridWalker', () => {
 
     let walker, grid, elem
 
+    before(() => {
+
+        $.cc('grid-walker', GridWalker)
+
+    })
+
     beforeEach(() => {
 
         elem = div()
 
-        walker = new GridWalker(elem)
+        walker = elem.cc.init('grid-walker')
 
         grid = new Grid({
             x: 100,

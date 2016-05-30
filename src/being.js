@@ -1,7 +1,7 @@
 /**
  * Being represents a dom with visual representation which has the phases, such as show, hide and disappear.
  */
-export default class Being extends $.cc.Coelement {
+export default class Being {
 
     /**
      * Returns the animation of showing

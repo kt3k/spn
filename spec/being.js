@@ -6,11 +6,15 @@ describe('Being', () => {
 
     let elem, being
 
+    before(() => {
+        $.cc('being', Being)
+    })
+
     beforeEach(() => {
 
         elem = div()
 
-        being = new Being(elem)
+        being = div().cc.init('being')
 
         being.showAnim = () => new Animation('showing', 500)
 

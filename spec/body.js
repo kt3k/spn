@@ -6,12 +6,19 @@ describe('Body', () => {
 
     let elem, body
 
-    class MyBody extends Body {
+    before(() => {
+        $.cc('body', Body)
 
-        width() { return 10 }
-        height() { return 20 }
+        class MyBody extends Body {
 
-    }
+            width() { return 10 }
+            height() { return 20 }
+
+        }
+
+        $.cc('my-body', MyBody)
+    })
+
 
     class MarginedBody extends Body {
 
@@ -22,11 +29,13 @@ describe('Body', () => {
 
     }
 
+    $.cc('margined-body', MarginedBody)
+
     beforeEach(() => {
 
         elem = div()
 
-        body = new MyBody(elem)
+        body = elem.cc.init('my-body')
 
         body.x = 30
         body.y = 40
@@ -35,7 +44,7 @@ describe('Body', () => {
 
     it('has default width=100 and height=100', () => {
 
-        const body = new Body(div())
+        const body = div().cc.init('body')
 
         body.updateElem()
 
@@ -83,7 +92,7 @@ describe('Body', () => {
 
         it('returns the actual width and height, respectively', () => {
 
-            const body = new MarginedBody(div())
+            const body = div().cc.init('margined-body')
 
             body.updateElem()
 
