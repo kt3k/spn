@@ -1,6 +1,9 @@
-# spn v3.0.0 (WIP) [![Circle CI](https://circleci.com/gh/kt3k/spn.svg?style=svg)](https://circleci.com/gh/kt3k/spn) [![codecov.io](https://codecov.io/github/kt3k/spn/coverage.svg?branch=master)](https://codecov.io/github/kt3k/spn?branch=master)
+# spn v3.0.0
 
-> **SP**rite e**N**gine
+[![Circle CI](https://circleci.com/gh/kt3k/spn.svg?style=svg)](https://circleci.com/gh/kt3k/spn)
+[![codecov.io](https://codecov.io/github/kt3k/spn/coverage.svg?branch=master)](https://codecov.io/github/kt3k/spn?branch=master)
+
+> :space_invader: **SP**rite e**N**gine :space_invader:
 
 # What's this?
 
