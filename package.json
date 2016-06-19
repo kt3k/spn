@@ -60,7 +60,7 @@
     "npm-run-all": "^2.1.0",
     "rimraf": "^2.5.1",
     "souffle-cli": "^3.0.0",
-    "uglify-js": "^2.6.1",
+    "uglify-js": "^2.6.3",
     "watchify": "^3.7.0"
   },
   "babel": {
