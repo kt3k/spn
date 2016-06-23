@@ -50,7 +50,7 @@
     "esdoc": "^0.4.6",
     "isparta": "^4.0.0",
     "jquery": "^3.0.0",
-    "karma": "^0.13.19",
+    "karma": "^1.0.0",
     "karma-browserify": "^5.0.4",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^1.0.1",
