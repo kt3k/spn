@@ -1,4 +1,4 @@
-import {Rect, Grid} from '../src'
+const {Rect, Grid} = require('../src')
 
 describe('Rect', () => {
 

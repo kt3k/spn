@@ -1,5 +1,5 @@
-import Rect from './rect'
-import ifNumElse from './if-num-else'
+const Rect = require('./rect')
+const ifNumElse = require('./if-num-else')
 
 /**
  * Grid model represents the grid layout.
@@ -10,7 +10,7 @@ import ifNumElse from './if-num-else'
  *
  * Usually cell width and height are equal to or less then unit width and height respectively.
  */
-export default class Grid {
+class Grid {
 
     /**
      * @param {Number} x The x coordinate
@@ -182,3 +182,5 @@ export default class Grid {
     }
 
 }
+
+module.exports = Grid

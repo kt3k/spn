@@ -6,7 +6,7 @@ import Grid from './grid'
  *
  * @abstract
  */
-export default class LayoutFactory {
+class LayoutFactory {
 
     /**
      * Creates a grid with the given options.
@@ -33,3 +33,5 @@ export default class LayoutFactory {
     }
 
 }
+
+module.exports = LayoutFactory

@@ -1,6 +1,6 @@
-export const UP = 0
-export const TOP = 0
-export const LEFT = 1
-export const RIGHT = 2
-export const BOTTOM = 3
-export const DOWN = 3
+exports.UP = 0
+exports.TOP = 0
+exports.LEFT = 1
+exports.RIGHT = 2
+exports.BOTTOM = 3
+exports.DOWN = 3

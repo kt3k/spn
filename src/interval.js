@@ -1,10 +1,9 @@
-import Rect from './rect'
 /**
  * Interval model represents the interval on the line.
  *
  * Interval is immutable.
  */
-export default class Interval {
+class Interval {
 
     /**
      * @param {number} high The high of the interval
@@ -50,6 +49,7 @@ export default class Interval {
      * @param {Rect}
      */
     by(interval) {
+        const Rect = require('./rect')
 
         return Rect.ofIntervals(this, interval)
 
@@ -111,3 +111,5 @@ export default class Interval {
     }
 
 }
+
+module.exports = Interval

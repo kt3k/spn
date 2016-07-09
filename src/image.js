@@ -1,7 +1,7 @@
 /**
  * The image object
  */
-export default class Image {
+class Image {
 
     /**
      * @constructor
@@ -46,3 +46,5 @@ export default class Image {
     }
 
 }
+
+module.exports = Image

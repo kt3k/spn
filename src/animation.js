@@ -7,7 +7,7 @@ const ANIMATION_PROP_NAME = '-webkit-animation'
 /**
  * Animation class represents the css animation.
  */
-export default class Animation {
+class Animation {
 
     /**
      * @param {String} name The name of the css animation (keyframes)
@@ -38,3 +38,5 @@ export default class Animation {
     }
 
 }
+
+module.exports = Animation

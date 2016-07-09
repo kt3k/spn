@@ -71,6 +71,7 @@
   "souffle": {
     "parser": "babel-eslint",
     "globals": [
+      "before",
       "beforeEach",
       "describe",
       "it",

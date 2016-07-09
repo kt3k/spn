@@ -7,7 +7,7 @@ import reflow from './reflow'
  * Body has width, height, position and information about how it put at the postion.
  * @abstract
  */
-export default class Body extends Being {
+class Body extends Being {
 
     constructor() {
         super()
@@ -227,3 +227,5 @@ export default class Body extends Being {
     }
 
 }
+
+module.exports = Body

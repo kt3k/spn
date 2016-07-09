@@ -6,7 +6,7 @@ import Rect from './rect'
  *
  * @class
  */
-export default class Posture {
+class Posture {
 
     /**
      * @param {Number} [width=100] The width
@@ -238,3 +238,5 @@ export default class Posture {
     }
 
 }
+
+module.exports = Posture

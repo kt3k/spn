@@ -2,7 +2,7 @@ import Body from './body'
 /**
  * A GridWalker is a Body which walks along the given Grid.
  */
-export default class GridWalker extends Body {
+class GridWalker extends Body {
 
     /**
      * @override
@@ -234,3 +234,5 @@ export default class GridWalker extends Body {
     }
 
 }
+
+module.exports = GridWalker

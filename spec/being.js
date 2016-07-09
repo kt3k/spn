@@ -4,15 +4,13 @@ import {div} from 'dom-gen'
 describe('Being', () => {
     'use strict'
 
-    let elem, being
+    let being
 
     before(() => {
         $.cc('being', Being)
     })
 
     beforeEach(() => {
-
-        elem = div()
 
         being = div().cc.init('being')
 

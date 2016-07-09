@@ -19,7 +19,6 @@ describe('Body', () => {
         $.cc('my-body', MyBody)
     })
 
-
     class MarginedBody extends Body {
 
         width() { return 100 }

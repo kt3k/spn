@@ -1,13 +1,12 @@
-import Grid from './grid'
-import ifNumElse from './if-num-else'
-import Interval from './interval'
+const ifNumElse = require('./if-num-else')
+const Interval = require('./interval')
 
 /**
  * Rect model represents the static rectangle in a screen.
  *
  * Rect is immutable.
  */
-export default class Rect {
+class Rect {
 
     /**
      * @param {number} top The top position
@@ -307,6 +306,7 @@ export default class Rect {
      * @return {Grid}
      */
     toGrid() {
+        const Grid = require('./grid')
 
         return new Grid({
             x: this.centerX(),
@@ -407,3 +407,5 @@ export default class Rect {
     }
 
 }
+
+module.exports = Rect
