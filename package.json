@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "karma start karma.conf.js",
-    "lint": "souffle",
+    "lint": "standard",
     "clean": "rimraf lib && rimraf spn.* && rimraf coverage",
     "doc": "esdoc -c esdoc.json",
     "codecov": "cat coverage/*/lcov.info | codecov",
@@ -59,7 +59,6 @@
     "mocha": "^2.3.4",
     "npm-run-all": "^2.1.0",
     "rimraf": "^2.5.1",
-    "souffle-cli": "^3.0.0",
     "uglify-js": "^2.6.4",
     "watchify": "^3.7.0"
   },
@@ -68,7 +67,7 @@
       "es2015"
     ]
   },
-  "souffle": {
+  "standard": {
     "parser": "babel-eslint",
     "globals": [
       "before",
