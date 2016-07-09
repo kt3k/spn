@@ -1,5 +1,5 @@
-import { reflow } from '../src'
-import { div } from 'dom-gen'
+const {reflow} = require('../src')
+const {div} = require('dom-gen')
 
 describe('reflow', () => {
   let elem

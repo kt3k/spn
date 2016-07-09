@@ -1,4 +1,5 @@
-import Body from './body'
+const Body = require('./body')
+
 /**
  * A GridWalker is a Body which walks along the given Grid.
  */

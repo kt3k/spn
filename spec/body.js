@@ -1,6 +1,6 @@
-import Body from '../src/body'
-import Rect from '../src/rect'
-import { div } from 'dom-gen'
+const Body = require('../src/body')
+const Rect = require('../src/rect')
+const {div} = require('dom-gen')
 
 describe('Body', () => {
   let elem, body

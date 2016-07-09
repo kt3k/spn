@@ -1,4 +1,4 @@
-import {Posture, Rect} from '../src'
+const {Posture, Rect} = require('../src')
 
 describe('Posture', () => {
   let posture

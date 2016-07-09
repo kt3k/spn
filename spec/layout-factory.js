@@ -1,6 +1,6 @@
-import {LayoutFactory, Rect, Grid} from '../src'
+const {LayoutFactory, Rect, Grid} = require('../src')
 
-import {expect} from 'chai'
+const {expect} = require('chai')
 
 describe('LayoutFactory', () => {
   let factory

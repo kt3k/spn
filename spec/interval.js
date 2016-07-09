@@ -1,4 +1,4 @@
-import Interval from '../src/interval'
+const Interval = require('../src/interval')
 
 describe('Interval', () => {
   it('switch high and low when they are given oppositely', () => {

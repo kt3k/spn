@@ -1,6 +1,6 @@
-import wait from './wait'
-import reflow from './reflow'
-import ifNumElse from './if-num-else'
+const wait = require('./wait')
+const reflow = require('./reflow')
+const ifNumElse = require('./if-num-else')
 
 const ANIMATION_PROP_NAME = '-webkit-animation'
 

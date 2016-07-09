@@ -1,4 +1,4 @@
-import {wait} from '../src'
+const {wait} = require('../src')
 
 describe('wait', () => {
   it('returns a promise', () => {

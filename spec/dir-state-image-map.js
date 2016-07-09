@@ -1,4 +1,4 @@
-import { Image, DirStateImageMap } from '../src'
+const {Image, DirStateImageMap} = require('../src')
 
 describe('DirStateImageMap', () => {
   let image, dirStateImageMap

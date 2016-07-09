@@ -1,4 +1,4 @@
-import ifNumElse from '../src/if-num-else'
+const ifNumElse = require('../src/if-num-else')
 
 describe('ifNumElse', () => {
   it('returns the first param if it is a number', () => {

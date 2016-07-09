@@ -1,4 +1,4 @@
-import { Grid } from '../src'
+const {Grid} = require('../src')
 
 describe('Grid', () => {
   let grid

@@ -1,5 +1,5 @@
-import { Image } from '../src'
-import { img as imgTag } from 'dom-gen'
+const {Image} = require('../src')
+const imgTag = require('dom-gen').img
 
 describe('Image', () => {
   describe('apply', () => {

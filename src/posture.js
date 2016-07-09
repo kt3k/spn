@@ -1,5 +1,5 @@
-import ifNumElse from './if-num-else'
-import Rect from './rect'
+const ifNumElse = require('./if-num-else')
+const Rect = require('./rect')
 
 /**
  * Posture is the model of the information about how the Body is placed and arranged to its position.

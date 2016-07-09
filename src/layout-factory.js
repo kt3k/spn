@@ -1,5 +1,5 @@
-import Rect from './rect'
-import Grid from './grid'
+const Rect = require('./rect')
+const Grid = require('./grid')
 
 /**
  * The abstact class for dimension factories of various objects in scenes.

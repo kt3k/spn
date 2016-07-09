@@ -1,5 +1,5 @@
-import { Being, Animation } from '../src'
-import { div } from 'dom-gen'
+const {Being, Animation} = require('../src')
+const {div} = require('dom-gen')
 
 describe('Being', () => {
   let being

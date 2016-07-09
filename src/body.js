@@ -1,7 +1,7 @@
-import wait from './wait'
-import Being from './being'
-import Posture from './posture'
-import reflow from './reflow'
+const wait = require('./wait')
+const Being = require('./being')
+const Posture = require('./posture')
+const reflow = require('./reflow')
 
 /**
  * Body has width, height, position and information about how it put at the postion.
