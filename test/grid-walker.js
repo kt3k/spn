@@ -25,6 +25,14 @@ describe('GridWalker', () => {
     walker.setGrid(grid, 1, 2)
   })
 
+  describe('willShow', () => {
+    it('calls ', done => {
+      walker.fitToGrid = () => done()
+
+      walker.willShow()
+    })
+  })
+
   describe('setGrid', () => {
     it('sets the grid and grid positions', () => {
       walker.setGrid(grid, 5, 1)

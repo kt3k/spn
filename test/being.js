@@ -16,6 +16,15 @@ describe('Being', () => {
     being.hideAnim = () => new Animation('abc', 37)
   })
 
+  describe('{show,hide}Anim', () => {
+    it('does nothing', () => {
+      being = div().cc.init('being')
+
+      being.showAnim()
+      being.hideAnim()
+    })
+  })
+
   describe('show', () => {
     it('applies the show animation to the elem', (done) => {
       const anim = { apply (elem) {
