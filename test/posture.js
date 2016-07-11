@@ -1,4 +1,5 @@
 const {Posture, Rect} = require('../src')
+const {expect} = require('chai')
 
 describe('Posture', () => {
   let posture

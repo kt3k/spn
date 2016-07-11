@@ -1,4 +1,5 @@
 const ifNumElse = require('../src/if-num-else')
+const {expect} = require('chai')
 
 describe('ifNumElse', () => {
   it('returns the first param if it is a number', () => {

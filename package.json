@@ -51,7 +51,6 @@
     "jquery": "^3.0.0",
     "karma": "^1.0.0",
     "karma-browserify": "^5.0.4",
-    "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^1.0.1",
     "karma-coverage": "^1.0.0",
     "karma-mocha": "^1.0.1",

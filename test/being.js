@@ -1,5 +1,6 @@
 const {Being, Animation} = require('../src')
 const {div} = require('dom-gen')
+const {expect} = require('chai')
 
 describe('Being', () => {
   let being

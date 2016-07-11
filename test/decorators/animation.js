@@ -1,6 +1,5 @@
 const {animation} = require('../../src').decorators
 const {Animation} = require('../../src')
-
 const {expect} = require('chai')
 
 class Foo {}

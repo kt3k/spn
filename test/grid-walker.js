@@ -1,5 +1,6 @@
-import { Grid, GridWalker } from '../src'
-import { div } from 'dom-gen'
+const {Grid, GridWalker } = require('../src')
+const {div} = require('dom-gen')
+const {expect} = require('chai')
 
 describe('GridWalker', () => {
   let walker, grid, elem

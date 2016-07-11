@@ -1,4 +1,5 @@
 const {Grid} = require('../src')
+const {expect} = require('chai')
 
 describe('Grid', () => {
   let grid

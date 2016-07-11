@@ -1,5 +1,6 @@
 const {reflow} = require('../src')
 const {div} = require('dom-gen')
+const {expect} = require('chai')
 
 describe('reflow', () => {
   let elem

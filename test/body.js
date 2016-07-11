@@ -3,6 +3,7 @@ const Rect = require('../src/rect')
 const Point = require('../src/point')
 const Area = require('../src/area')
 const {div} = require('dom-gen')
+const {expect} = require('chai')
 
 describe('Body', () => {
   let elem, body

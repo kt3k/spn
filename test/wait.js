@@ -1,4 +1,5 @@
 const {wait} = require('../src')
+const {expect} = require('chai')
 
 describe('wait', () => {
   it('returns a promise', () => {

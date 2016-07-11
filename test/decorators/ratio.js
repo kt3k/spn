@@ -1,5 +1,4 @@
 const {ratio} = require('../../src').decorators
-
 const {expect} = require('chai')
 
 class Foo {}

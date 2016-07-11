@@ -1,5 +1,4 @@
 const {LayoutFactory, Rect, Grid} = require('../src')
-
 const {expect} = require('chai')
 
 describe('LayoutFactory', () => {

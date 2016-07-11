@@ -1,4 +1,5 @@
 const {Image, DirStateImageMap} = require('../src')
+const {expect} = require('chai')
 
 describe('DirStateImageMap', () => {
   let image, dirStateImageMap
