@@ -1,5 +1,6 @@
 const ifNumElse = require('./if-num-else')
 const Interval = require('./interval')
+const Area = require('./area')
 
 /**
  * Rect model represents the static rectangle in a screen.
@@ -336,12 +337,19 @@ class Rect {
   }
 
   /**
-   * Returns a dual grid
-   *
+   * Returns a dual grid.
    * @return {Grid}
    */
   dual () {
     return this.toGrid()
+  }
+
+  /**
+   * Returns the area which this rect occupies.
+   * @return {Area}
+   */
+  area () {
+    return new Area(this.width(), this.height())
   }
 }
 

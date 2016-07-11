@@ -2,6 +2,8 @@ const wait = require('./wait')
 const Being = require('./being')
 const Posture = require('./posture')
 const reflow = require('./reflow')
+const Point = require('./point')
+const Area = require('./area')
 
 /**
  * Body has width, height, position and information about how it put at the postion.
@@ -188,6 +190,38 @@ class Body extends Being {
     this.y = this.posture.getYInRect(rect)
 
     this.posture.fitToRect(rect)
+  }
+
+  /**
+   * Sets the body at the given point.
+   * @param {Point} point The point
+   */
+  setAt (point) {
+    this.x = point.x
+    this.y = point.y
+  }
+
+  /**
+   * Returns the point where this body is at.
+   * @return {Point}
+   */
+  getPoint () {
+    return new Point(this.x, this.y)
+  }
+
+  /**
+   * @param {Area} area The area to fit
+   */
+  setArea (area) {
+    this.posture.fitToArea(area)
+  }
+
+  /**
+   * Gets the area which the body occupies.
+   * @return {Area}
+   */
+  getArea () {
+    return new Area(this.posture.width, this.posture.height)
   }
 }
 

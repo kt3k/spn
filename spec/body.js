@@ -1,5 +1,7 @@
 const Body = require('../src/body')
 const Rect = require('../src/rect')
+const Point = require('../src/point')
+const Area = require('../src/area')
 const {div} = require('dom-gen')
 
 describe('Body', () => {
@@ -140,6 +142,42 @@ describe('Body', () => {
       expect(body.rightLimit()).to.equal(rect.right)
       expect(body.bottomLimit()).to.equal(rect.bottom)
       expect(body.leftLimit()).to.equal(rect.left)
+    })
+  })
+
+  describe('setAt', () => {
+    it('sets the body at the given point', () => {
+      body.setAt(new Point(105, 205))
+
+      expect(body.x).to.equal(105)
+      expect(body.y).to.equal(205)
+    })
+  })
+
+  describe('getPoint', () => {
+    it('gets the point where the body is at', () => {
+      const point = body.getPoint()
+
+      expect(point.x).to.equal(30)
+      expect(point.y).to.equal(40)
+    })
+  })
+
+  describe('setArea', () => {
+    it('sets the area which the body occupies', () => {
+      body.setArea(new Area(15, 25))
+
+      expect(body.posture.width).to.equal(15)
+      expect(body.posture.height).to.equal(25)
+    })
+  })
+
+  describe('getArea', () => {
+    it('gets the area which the body occupies', () => {
+      const area = body.getArea()
+
+      expect(area.width).to.equal(10)
+      expect(area.height).to.equal(20)
     })
   })
 })

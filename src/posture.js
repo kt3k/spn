@@ -161,7 +161,6 @@ class Posture {
 
   /**
    * Gets the vertical position when it is placed in the given rect.
-   *
    * @param {Rect} rect
    * @return {number}
    */
@@ -171,12 +170,19 @@ class Posture {
 
   /**
    * Fits the size to the size of the given rect.
-   *
    * @param {Rect} rect
    */
   fitToRect (rect) {
-    this.width = rect.width()
-    this.height = rect.height()
+    this.fitToArea(rect.area())
+  }
+
+  /**
+   * Fits the size to the given area.
+   * @param {Area} area The area
+   */
+  fitToArea (area) {
+    this.width = area.width
+    this.height= area.height
   }
 
   /**
