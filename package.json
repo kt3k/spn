@@ -57,6 +57,7 @@
     "mocha": "^2.3.4",
     "npm-run-all": "^2.1.0",
     "rimraf": "^2.5.1",
+    "standard": "^7.1.2",
     "uglify-js": "^2.6.4",
     "watchify": "^3.7.0"
   },

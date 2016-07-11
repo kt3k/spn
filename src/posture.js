@@ -182,7 +182,7 @@ class Posture {
    */
   fitToArea (area) {
     this.width = area.width
-    this.height= area.height
+    this.height = area.height
   }
 
   /**
