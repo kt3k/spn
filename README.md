@@ -49,7 +49,7 @@ class MyCharacter extends Sprite {
     ...
 }
 
-$.cc.assign('my-character', MyCharacter)
+$.cc('my-character', MyCharacter)
 ```
 
 **NOTE:** You need to load $ (jquery) and class-component globally.
@@ -65,14 +65,11 @@ First download spn.min.js, then
 <script src="path/to/class-component.min.js"></script>
 <script src="path/to/spn.min.js"></script>
 <script>
+class MyCharacter extends spn.Sprite {
+  ...
+}
 
-var MyCharacter = $.cc.subclass(spn.Sprite, function (pt) {
-    'use strict'
-
-    ...
-})
-
-$.cc.register('my-character', MyCharacter)
+$.cc('my-character', MyCharacter)
 </script>
 ```
 
