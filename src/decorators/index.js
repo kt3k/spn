@@ -1,2 +1,5 @@
 exports.animation = require('./animation')
 exports.ratio = require('./ratio')
+exports.transition = require('./transition')
+exports.width = require('./width')
+exports.height = require('./height')
