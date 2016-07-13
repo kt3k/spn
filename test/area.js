@@ -14,6 +14,11 @@ describe('Area',  () => {
 
       expect(area0.width).to.equal(50)
       expect(area0.height).to.equal(100)
+
+      const area1 = area.scale(2, 4)
+
+      expect(area1.width).to.equal(200)
+      expect(area1.height).to.equal(800)
     })
   })
 
