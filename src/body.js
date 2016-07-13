@@ -4,6 +4,7 @@ const Posture = require('./posture')
 const reflow = require('./reflow')
 const Point = require('./point')
 const Area = require('./area')
+const ifNumElse = require('./if-num-else')
 
 /**
  * Body has width, height, position and information about how it put at the postion.
@@ -12,6 +13,11 @@ const Area = require('./area')
 class Body extends Being {
   constructor () {
     super()
+
+    /**
+     * @deprecated
+     */
+    this.transitionDuration = this.defaultTransitionDuration()
 
     /**
      * @property {Number} x sprite's x coordinate value
@@ -45,6 +51,7 @@ class Body extends Being {
   ratioY () { return 0 }
   marginX () { return 0 }
   marginY () { return 0 }
+  defaultTransitionDuration () { return 500 }
 
   /**
    * Returns the actual width of the elem.
@@ -65,7 +72,10 @@ class Body extends Being {
    * @override
    */
   willShow () {
-    this.updateElem()
+    this.updateOffset()
+    this.updateRect()
+
+    reflow(this.elem)
   }
 
   /**
@@ -119,8 +129,8 @@ class Body extends Being {
    * @private
    */
   updateOffset () {
-    this.elem.css('top', this.posture.topLimit(this.y))
-    this.elem.css('left', this.posture.leftLimit(this.x))
+    this.elem.css('top', this.topLimit())
+    this.elem.css('left', this.leftLimit())
   }
 
   /**
@@ -128,13 +138,58 @@ class Body extends Being {
    * @private
    */
   updateRect () {
-    this.elem.width(this.posture.actualWidth())
-    this.elem.height(this.posture.actualHeight())
+    this.elem.width(this.actualWidth())
+    this.elem.height(this.actualHeight())
+  }
+
+  /**
+   * Stops the dom transition and update current state by the dom state.
+   * @private
+   */
+  stop () {
+    this.elem.width(this.elem.width())
+    this.elem.height(this.elem.height())
+    this.elem.css('top', this.elem.css('top'))
+    this.elem.css('left', this.elem.css('left'))
+
+    this.posture.setActualWidth(this.elem.width())
+    this.posture.setActualHeight(this.elem.height())
+
+    this.x = Body.pxToNum(this.elem.css('left')) + this.posture.width * this.posture.ratioX
+    this.y = Body.pxToNum(this.elem.css('top')) + this.posture.height * this.posture.ratioY
+  }
+
+  /**
+   * Converts the pixel to the number.
+   * @param {string} px The pixel
+   * @return {number}
+   */
+  static pxToNum (px) {
+    return +px.slice(0, -2)
+  }
+
+  /**
+   * Updates the dom with current state and returns a promise which resolves when the updates finished.
+   * @param {number} [duration] The transition duration
+   * @return {Promise}
+   */
+  engage (duration) {
+    duration = ifNumElse(duration, this.defaultTransitionDuration())
+
+    this.elem.css('transition-duration', duration + 'ms')
+
+    reflow(this.elem)
+
+    this.updateRect()
+    this.updateOffset()
+
+    return wait(duration)
   }
 
   /**
    * Updates the actual elem dom according to the current posture.
    * Returns a promise which resolves with the transitionDuration milliseconds.
+   * @deprecated
    * @param {Number} [dur] The
    * @return {Promise}
    */
@@ -151,6 +206,7 @@ class Body extends Being {
 
   /**
    * Moves the elem to the given y position.
+   * @deprecated
    * @param {Number} to The y position
    */
   moveToY (to) {
@@ -161,6 +217,7 @@ class Body extends Being {
 
   /**
    * Moves the elem to the given x position.
+   * @deprecated
    * @param {Number} to The x position
    */
   moveToX (to) {
@@ -171,7 +228,8 @@ class Body extends Being {
 
   /**
    * Sets the transition duration.
-   * @param {Number} dur The transition duration
+   * @deprecated
+   * @param {number} dur The transition duration
    */
   setTransitionDuration (dur) {
     this.transitionDuration = dur

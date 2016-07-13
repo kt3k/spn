@@ -64,10 +64,13 @@ describe('Body', () => {
   })
 
   describe('willShow', () => {
-    it('calls updateElem', done => {
-      body.updateElem = () => done()
+    it('calls update{Rect,Offset}', done => {
+      const foo = new Promise(resolve => { body.updateRect = resolve })
+      const bar = new Promise(resolve => { body.updateOffset = resolve })
 
       body.willShow()
+
+      Promise.all([foo, bar]).then(() => done())
     })
   })
 
@@ -95,6 +98,28 @@ describe('Body', () => {
     it('returns the x of the center of the body', () => {
       expect(body.centerX()).to.equal(35)
       expect(body.centerY()).to.equal(50)
+    })
+  })
+
+  describe('stop', () => {
+    it('', () => {
+      body.stop()
+    })
+  })
+
+  describe('engage', () => {
+    it('engages the current state to the dom', done => {
+      body.setAt(new Point(50, 60))
+      body.setArea(new Area(120, 140))
+
+      body.engage(100).then(() => {
+        expect(body.x).to.equal(50)
+        expect(body.y).to.equal(60)
+
+        expect(body.posture.width).to.equal(120)
+        expect(body.posture.height).to.equal(140)
+        done()
+      })
     })
   })
 
