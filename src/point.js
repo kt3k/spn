@@ -1,3 +1,5 @@
+const {UP, LEFT, RIGHT, DOWN} = require('./dirs')
+
 /**
  * The model of the positions of points in 2-dimensional space.
  */
@@ -41,6 +43,31 @@ class Point {
    */
   down (distance) {
     return new Point(this.x, this.y + distance)
+  }
+
+  /**
+   * Gets the direction to the given point (one of '')
+   * @param {Point}
+   * @return {Point}
+   */
+  minus (point) {
+    return new Point(this.x - point.x, this.y - point.y)
+  }
+
+  /**
+   */
+  getDir () {
+    if (Math.abs(this.x) >= Math.abs(this.y)) {
+      if (this.x >= 0) {
+        return RIGHT
+      }
+      return LEFT
+    }
+
+    if (this.y > 0) {
+      return DOWN
+    }
+    return UP
   }
 }
 
