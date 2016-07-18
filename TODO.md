@@ -1,5 +1,7 @@
 # TODO
 
+- deprecate Grid
+
 # DONE
 - @animation.show decorator
 - @animation.hide decorator
