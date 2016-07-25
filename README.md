@@ -80,13 +80,21 @@ var spn = require('spn')
 ```
 
 ## spn.wait(time)
-## spn.Dimension
-## spn.DimensionFactory
+## spn.reflow(elem)
+## spn.LayoutFactory
+## spn.Area
 ## spn.Rect
-## spn.Grid
-## spn.GridWalker
+## spn.Rect
+## spn.Body
 ## spn.Animation
 ## spn.Image
-## spn.Sprite
-## spn.CharSprite
-## spn.StaticSprite
+
+# Decorator APIs
+
+## spn.ratio.x
+## spn.ratio.y
+## spn.animation.show
+## spn.animation.hide
+## spn.width
+## spn.height
+## spn.transition.duration
