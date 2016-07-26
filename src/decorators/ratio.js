@@ -1,8 +1,18 @@
 /**
  * Adds ratioX method to the class.
  */
-exports.x = x => Cls => {
-  Cls.prototype.ratioX = () => x
+exports.x = x => {
+
+  const d = Cls => {
+    Cls.prototype.ratioX = () => x
+  }
+
+  d.y = y => Cls => {
+    d(Cls)
+    exports.y(y)(Cls)
+  }
+
+  return d
 }
 
 /**
