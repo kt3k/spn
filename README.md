@@ -91,10 +91,12 @@ var spn = require('spn')
 
 # Decorator APIs
 
-## spn.ratio.x
-## spn.ratio.y
-## spn.animation.show
-## spn.animation.hide
-## spn.width
-## spn.height
+## spn.ratio.x()
+## spn.ratio.x().y()
+## spn.ratio.y()
+## spn.animation.show()
+## spn.animation.show().hide()
+## spn.animation.hide()
+## spn.width()
+## spn.height()
 ## spn.transition.duration
