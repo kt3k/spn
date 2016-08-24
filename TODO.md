@@ -2,9 +2,10 @@
 
 - deprecate Grid
 - deprecate GridWalker
-- @animation.show().hide() decorator
+- @margin decorator
 
 # DONE
+- @animation.show().hide() decorator
 - @ratio.x().y() decorator
 - @animation.show decorator
 - @animation.hide decorator
