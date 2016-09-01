@@ -55,7 +55,7 @@
     "karma-coverage": "^1.0.0",
     "karma-mocha": "^1.0.1",
     "mocha": "^3.0.0",
-    "npm-run-all": "^3.0.0",
+    "npm-run-all": "^3.1.0",
     "rimraf": "^2.5.1",
     "standard": "^8.0.0",
     "uglify-js": "^2.6.4",
