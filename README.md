@@ -33,8 +33,7 @@
 
 - jQuery
 - class-component
-- cc-event
-- Promise (es6)
+- Promise (es2015)
 
 # Usage
 
@@ -43,9 +42,9 @@ Via npm
     npm install spn
 
 ```js
-import {Sprite} from 'spn'
+const {Body} = require('spn')
 
-class MyCharacter extends Sprite {
+class MyCharacter extends Body {
     ...
 }
 
@@ -54,36 +53,26 @@ $.cc('my-character', MyCharacter)
 
 **NOTE:** You need to load $ (jquery) and class-component globally.
 
-Via file:
-
-First download spn.min.js, then
-
-```html
-<div class="my-character"></div>
-
-<script src="path/to/jquery.min.js"></script>
-<script src="path/to/class-component.min.js"></script>
-<script src="path/to/spn.min.js"></script>
-<script>
-class MyCharacter extends spn.Sprite {
-  ...
-}
-
-$.cc('my-character', MyCharacter)
-</script>
-```
-
 # API
 
 ```js
-var spn = require('spn')
+const spn = require('spn')
 ```
 
 ## spn.wait(time)
+
+- @param {number} time The time to wait (in milliseconds)
+- @return {Promise}
+
+Returns the promise which resolves after the given milliseconds.
+
 ## spn.reflow(elem)
-## spn.LayoutFactory
+
+- @param {jQuer} elem The element
+
+Reflows (repaints) the element.
+
 ## spn.Area
-## spn.Rect
 ## spn.Rect
 ## spn.Body
 ## spn.Animation
@@ -91,12 +80,9 @@ var spn = require('spn')
 
 # Decorator APIs
 
-## spn.ratio.x()
-## spn.ratio.x().y()
-## spn.ratio.y()
-## spn.animation.show()
-## spn.animation.show().hide()
-## spn.animation.hide()
-## spn.width()
-## spn.height()
-## spn.transition.duration
+## spn.ratio({x, y})
+## spn.margin({x, y})
+## spn.animation({show: [name, duration], hide: [name, duration]})
+## spn.width(width)
+## spn.height(height)
+## spn.transition.duration(duration)
