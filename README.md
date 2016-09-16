@@ -81,8 +81,16 @@ Reflows (repaints) the element.
 # Decorator APIs
 
 ## spn.ratio({x, y})
-## spn.margin({x, y})
+## spn.margin({x, y, left, right, top, bottom})
 ## spn.animation({show: [name, duration], hide: [name, duration]})
 ## spn.width(width)
 ## spn.height(height)
 ## spn.transition.duration(duration)
+
+# History
+
+- v3.10.0   2016-09-16   Added @margin() and @ratio() decorators.
+
+# License
+
+MIT
