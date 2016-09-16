@@ -1,7 +1,7 @@
 const {expect} = require('chai')
 const {Area} = require('../src')
 
-describe('Area',  () => {
+describe('Area', () => {
   let area
 
   beforeEach(() => {
