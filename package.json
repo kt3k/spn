@@ -33,7 +33,7 @@
   "homepage": "https://github.com/kt3k/spn#readme",
   "peerDependencies": {
     "jquery": ">=2.0.0",
-    "class-component": ">=10.6.0"
+    "class-component": ">=10.7.1"
   },
   "devDependencies": {
     "babel-cli": "^6.14.0",
