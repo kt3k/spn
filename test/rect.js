@@ -1,5 +1,5 @@
-const {Rect, Grid} = require('../src')
-const {expect} = require('chai')
+const { Rect, Grid, Point } = require('../src')
+const { expect } = require('chai')
 
 describe('Rect', () => {
   let rect
@@ -345,6 +345,36 @@ describe('Rect', () => {
       expect(dualDual.left).to.equal(rect.left)
       expect(dualDual.right).to.equal(rect.right)
       expect(dualDual.bottom).to.equal(rect.bottom)
+    })
+  })
+
+  describe('center', () => {
+    it('returns the center point', () => {
+      const point = rect.center()
+
+      expect(point).to.be.instanceof(Point)
+      expect(point.x).to.equal(rect.centerX())
+      expect(point.y).to.equal(rect.centerY())
+    })
+  })
+
+  describe('bottomCenter', () => {
+    it('returns the bottom center point', () => {
+      const point = rect.bottomCenter()
+
+      expect(point).to.be.instanceof(Point)
+      expect(point.x).to.equal(rect.centerX())
+      expect(point.y).to.equal(rect.bottom)
+    })
+  })
+
+  describe('topCenter', () => {
+    it('returns the top center point', () => {
+      const point = rect.topCenter()
+
+      expect(point).to.be.instanceof(Point)
+      expect(point.x).to.equal(rect.centerX())
+      expect(point.y).to.equal(rect.top)
     })
   })
 })

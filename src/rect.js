@@ -1,6 +1,7 @@
 const ifNumElse = require('./if-num-else')
 const Interval = require('./interval')
 const Area = require('./area')
+const Point = require('./point')
 
 /**
  * Rect model represents the static rectangle in a screen.
@@ -350,6 +351,30 @@ class Rect {
    */
   area () {
     return new Area(this.width(), this.height())
+  }
+
+  /**
+   * Returns the center point.
+   * @return {Point}
+   */
+  center () {
+    return new Point(this.centerX(), this.centerY())
+  }
+
+  /**
+   * Returns the bottom center point.
+   * @return {Point}
+   */
+  bottomCenter () {
+    return new Point(this.centerX(), this.bottom)
+  }
+
+  /**
+   * Returns the top center point.
+   * @return {Point}
+   */
+  topCenter () {
+    return new Point(this.centerX(), this.top)
   }
 }
 
