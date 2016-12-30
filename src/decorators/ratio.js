@@ -25,8 +25,6 @@ module.exports.x = x => {
     return Cls
   }
 
-  d.y = y => Cls => module.exports.y(y)(d(Cls))
-
   return d
 }
 
