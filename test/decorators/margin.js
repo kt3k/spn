@@ -11,7 +11,7 @@ describe('margin({x, y, left, right, top, bottom})', () => {
       left: 3,
       right: 4,
       top: 5,
-      bottom: 6,
+      bottom: 6
     })(Foo)
 
     expect(Foo.prototype.marginX).to.be.a('function')
