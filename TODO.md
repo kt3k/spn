@@ -1,11 +1,11 @@
 # TODO
 
-- create @ratio({x, y})
 - deprecate Grid
 - deprecate GridWalker
-- @margin decorator
 
 # DONE
+- @margin decorator
+- create @ratio({x, y})
 - remove @ratio.x().y()
 - remove @animation.show().hide
 - create @animation({show: {name, dur}, hide: {name, dur}})
