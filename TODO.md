@@ -1,6 +1,5 @@
 # TODO
 
-- deprecate @animation.show().hide
 - deprecate @ratio.x().y()
 - create @ratio({x, y})
 - deprecate Grid
@@ -8,6 +7,7 @@
 - @margin decorator
 
 # DONE
+- remove @animation.show().hide
 - create @animation({show: {name, dur}, hide: {name, dur}})
 - @animation.show().hide() decorator
 - @ratio.x().y() decorator

@@ -57,15 +57,3 @@ describe('animation.hide', () => {
     expect(new Bar().hideAnim()).to.be.instanceof(Animation)
   })
 })
-
-describe('animation.show().hide()', () => {
-  it('adds showAnim and hideAnim methods', () => {
-    class Bar {}
-    animation.show('bar-show', 400).hide('bar-hide', 500)(Bar)
-
-    expect(Bar.prototype.showAnim).to.be.a('function')
-    expect(new Bar().showAnim()).to.be.instanceof(Animation)
-    expect(Bar.prototype.hideAnim).to.be.a('function')
-    expect(new Bar().hideAnim()).to.be.instanceof(Animation)
-  })
-})

@@ -40,9 +40,5 @@ module.exports.show = (name, dur = 500) => {
     return Cls
   }
 
-  d.hide = (name, dur) => Cls => {
-    return module.exports.hide(name, dur)(d(Cls))
-  }
-
   return d
 }
