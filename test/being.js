@@ -73,6 +73,21 @@ describe('Being', () => {
 
       being.show()
     })
+
+    it('adds showing class to the element', () => {
+      being.show()
+
+      expect(being.$el.hasClass('showing')).to.be.true
+      expect(being.$el.hasClass('shown')).to.be.false
+    })
+
+    it('adds shown class to the element at the end of `show`', done => {
+      being.show().then(() => {
+        expect(being.$el.hasClass('shown')).to.be.true
+
+        done()
+      }).catch(done)
+    })
   })
 
   describe('hide', () => {

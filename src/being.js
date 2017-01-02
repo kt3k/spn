@@ -41,6 +41,8 @@ class Being {
    * @return {Promise}
    */
   show (dur) {
+    this.$el.addClass('showing')
+
     return Promise.resolve(this.willShow())
 
       .then(() => {
@@ -50,6 +52,8 @@ class Being {
       })
 
       .then(() => this.didShow())
+
+      .then(() => this.$el.addClass('shown'))
   }
 
   /**
@@ -75,6 +79,8 @@ class Being {
    * @return {Promise}
    */
   hide (dur) {
+    this.$el.removeClass('shown')
+
     return Promise.resolve(this.willHide())
 
       .then(() => {
@@ -84,6 +90,8 @@ class Being {
       })
 
       .then(() => this.didHide())
+
+      .then(() => this.$el.removeClass('showing'))
   }
 
   /**
