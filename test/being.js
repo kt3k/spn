@@ -1,6 +1,6 @@
-const {Being, Animation} = require('../src')
-const {div} = require('dom-gen')
-const {expect} = require('chai')
+const { wait, Being, Animation } = require('../src')
+const { div } = require('dom-gen')
+const { expect } = require('chai')
 
 describe('Being', () => {
   let being
@@ -79,6 +79,19 @@ describe('Being', () => {
         done()
       }).catch(done)
     })
+
+    it('waits at least the given duration if constructor.SHOW_DURATION is set', done => {
+      being.constructor.SHOW_DURATION = 100
+      being.show().then(() => {
+        delete being.constructor.SHOW_DURATION
+
+        done()
+      })
+
+      wait(50).then(() => {
+        expect(being.$el.hasClass('shown')).to.be.false
+      })
+    })
   })
 
   describe('hide', () => {
@@ -124,6 +137,19 @@ describe('Being', () => {
       }
 
       being.hide()
+    })
+
+    it('waits at least the given duration if constructor.SHOW_DURATION is set', done => {
+      being.constructor.SHOW_DURATION = 100
+      being.hide().then(() => {
+        delete being.constructor.SHOW_DURATION
+
+        done()
+      })
+
+      wait(50).then(() => {
+        expect(being.$el.hasClass('showing')).to.be.true
+      })
     })
   })
 

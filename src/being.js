@@ -1,4 +1,6 @@
 const applyIfFunction = require('./apply-if-function')
+const wait = require('./wait')
+
 /**
  * Being represents a dom with visual representation which has the phases, such as show, hide and disappear.
  */
