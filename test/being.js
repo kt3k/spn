@@ -17,26 +17,17 @@ describe('Being', () => {
     being.hideAnim = () => new Animation('abc', 37)
   })
 
-  describe('{show,hide}Anim', () => {
-    it('does nothing', () => {
-      being = div().cc.init('being')
-
-      being.showAnim()
-      being.hideAnim()
-    })
-  })
-
   describe('show', () => {
-    it('applies the show animation to the elem', (done) => {
-      const anim = { apply (elem) {
-        expect(elem).to.equal(being.elem)
+    it('applies the show animation to the elem', done => {
+      const anim = { apply (el) {
+        expect(el).to.equal(being.el)
 
         done()
       } }
 
       being.showAnim = () => anim
 
-      being.show().catch((e) => {
+      being.show().catch(e => {
         console.log(e)
         console.log(e.stack)
       })
@@ -92,8 +83,8 @@ describe('Being', () => {
 
   describe('hide', () => {
     it('applies the hide animation to the elem', (done) => {
-      const anim = { apply (elem) {
-        expect(elem).to.equal(being.elem)
+      const anim = { apply (el) {
+        expect(el).to.equal(being.el)
 
         done()
       } }

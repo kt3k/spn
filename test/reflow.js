@@ -1,23 +1,23 @@
-const {reflow} = require('../src')
-const {div} = require('dom-gen')
-const {expect} = require('chai')
+const { reflow } = require('../src')
+const { div } = require('dom-gen')
+const { expect } = require('chai')
 
 describe('reflow', () => {
-  let elem
+  let el
 
   beforeEach(() => {
-    elem = div()
+    el = div()[0]
   })
 
-  it('returns the given element', () => {
-    expect(reflow(elem)).to.equal(elem)
+  it('returns undefined', () => {
+    expect(reflow(el)).to.be.undefined
   })
 
-  it('references the offsetHeight of the given elem', (done) => {
-    Object.defineProperty(elem.get(0), 'offsetHeight', {
+  it('references the offsetHeight of the given elem', done => {
+    Object.defineProperty(el, 'offsetHeight', {
       get: () => done()
     })
 
-    reflow(elem)
+    reflow(el)
   })
 })

@@ -75,7 +75,7 @@ class Body extends Being {
     this.updateOffset()
     this.updateRect()
 
-    reflow(this.elem)
+    reflow(this.el)
   }
 
   /**
@@ -178,7 +178,7 @@ class Body extends Being {
 
     this.elem.css('transition-duration', duration + 'ms')
 
-    reflow(this.elem)
+    reflow(this.el)
 
     this.updateRect()
     this.updateOffset()
@@ -236,7 +236,7 @@ class Body extends Being {
 
     this.elem.css('transition-duration', dur + 'ms')
 
-    reflow(this.elem)
+    reflow(this.el)
   }
 
   /**

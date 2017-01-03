@@ -1,12 +1,10 @@
 /**
  * Reflows the given element
  *
- * @param {jQuery|HTMLElement} elem The element
+ * @param {HTMLElement} el The element
  */
-module.exports = elem => {
-  let offsetHeight = $(elem).get(0).offsetHeight
+module.exports = el => {
+  let offsetHeight = el.offsetHeight
 
   offsetHeight = offsetHeight + 1
-
-  return elem
 }

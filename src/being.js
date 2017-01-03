@@ -1,35 +1,8 @@
+const applyIfFunction = require('./apply-if-function')
 /**
  * Being represents a dom with visual representation which has the phases, such as show, hide and disappear.
  */
 class Being {
-  /**
-   * Returns the animation of showing
-   *
-   * @abstract
-   * @return {Animation}
-   */
-  showAnim () {}
-
-  /**
-   * Returns the animation of hiding
-   *
-   * @abstract
-   * @return {Animation}
-   */
-  hideAnim () {}
-
-  /**
-   * @abstract
-   * @return {Promise}
-   */
-  willShow () {}
-
-  /**
-   * @abstract
-   * @return {Promise}
-   */
-  didShow () {}
-
   /**
    * Shows the element using the animation returned by showAnim.
    * 表示時アニメーション (showAnim) に従ってアニメーションさせる。
@@ -43,30 +16,20 @@ class Being {
   show (dur) {
     this.$el.addClass('showing')
 
-    return Promise.resolve(this.willShow())
+    return Promise.resolve(applyIfFunction(this, this.willShow))
 
       .then(() => {
-        const anim = this.showAnim()
+        const anim = applyIfFunction(this, this.showAnim)
 
-        return anim != null && anim.apply(this.elem, dur)
+        return anim && anim.apply(this.el, dur)
       })
 
-      .then(() => this.didShow())
+      .then(() => typeof this.constructor.SHOW_DURATION === 'number' && wait(this.constructor.SHOW_DURATION))
+
+      .then(() => applyIfFunction(this, this.didShow))
 
       .then(() => this.$el.addClass('shown'))
   }
-
-  /**
-   * @abstract
-   * @return {Promise}
-   */
-  willHide () {}
-
-  /**
-   * @abstract
-   * @return {Promise}
-   */
-  didHide () {}
 
   /**
    * Hides the element using the animation returned by hideAnim.
@@ -81,15 +44,17 @@ class Being {
   hide (dur) {
     this.$el.removeClass('shown')
 
-    return Promise.resolve(this.willHide())
+    return Promise.resolve(applyIfFunction(this, this.willHide))
 
       .then(() => {
-        const anim = this.hideAnim()
+        const anim = applyIfFunction(this, this.hideAnim)
 
-        return anim != null && anim.apply(this.elem, dur)
+        return anim && anim.apply(this.el, dur)
       })
 
-      .then(() => this.didHide())
+      .then(() => typeof this.constructor.SHOW_DURATION === 'number' && wait(this.constructor.SHOW_DURATION))
+
+      .then(() => applyIfFunction(this, this.didHide))
 
       .then(() => this.$el.removeClass('showing'))
   }
@@ -101,7 +66,7 @@ class Being {
    * @return {Promise}
    */
   disappear (dur) {
-    return this.hide(dur).then(() => this.elem.remove())
+    return this.hide(dur).then(() => this.$el.remove())
   }
 }
 
