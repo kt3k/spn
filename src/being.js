@@ -24,10 +24,11 @@ class Being {
       .then(() => {
         const anim = applyIfFunction(this, this.showAnim)
 
-        return anim && anim.apply(this.el, dur)
+        return Promise.all([
+          wait(ifNumElse(this.constructor.SHOW_DURATION, 0)),
+          anim && anim.apply(this.el, dur)
+        ])
       })
-
-      .then(() => wait(ifNumElse(this.constructor.SHOW_DURATION, 0)))
 
       .then(() => applyIfFunction(this, this.didShow))
 
@@ -52,10 +53,11 @@ class Being {
       .then(() => {
         const anim = applyIfFunction(this, this.hideAnim)
 
-        return anim && anim.apply(this.el, dur)
+        return Promise.all([
+          wait(ifNumElse(this.constructor.SHOW_DURATION, 0)),
+          anim && anim.apply(this.el, dur)
+        ])
       })
-
-      .then(() => wait(ifNumElse(this.constructor.SHOW_DURATION, 0)))
 
       .then(() => applyIfFunction(this, this.didHide))
 
