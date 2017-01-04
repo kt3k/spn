@@ -1,5 +1,6 @@
 const applyIfFunction = require('./apply-if-function')
 const wait = require('./wait')
+const ifNumElse = require('./if-num-else')
 
 /**
  * Being represents a dom with visual representation which has the phases, such as show, hide and disappear.
@@ -26,7 +27,7 @@ class Being {
         return anim && anim.apply(this.el, dur)
       })
 
-      .then(() => typeof this.constructor.SHOW_DURATION === 'number' && wait(this.constructor.SHOW_DURATION))
+      .then(() => wait(ifNumElse(this.constructor.SHOW_DURATION, 0)))
 
       .then(() => applyIfFunction(this, this.didShow))
 
@@ -54,7 +55,7 @@ class Being {
         return anim && anim.apply(this.el, dur)
       })
 
-      .then(() => typeof this.constructor.SHOW_DURATION === 'number' && wait(this.constructor.SHOW_DURATION))
+      .then(() => wait(ifNumElse(this.constructor.SHOW_DURATION, 0)))
 
       .then(() => applyIfFunction(this, this.didHide))
 
