@@ -2,21 +2,22 @@ const Body = require('../src/body')
 const Rect = require('../src/rect')
 const Point = require('../src/point')
 const Area = require('../src/area')
-const {div} = require('dom-gen')
-const {expect} = require('chai')
+const { div } = require('dom-gen')
+const { expect } = require('chai')
+const { def, make } = require('capsid')
 
 describe('Body', () => {
   let elem, body
 
   before(() => {
-    $.cc('body', Body)
+    def('body', Body)
 
     class MyBody extends Body {
       width () { return 10 }
       height () { return 20 }
     }
 
-    $.cc('my-body', MyBody)
+    def('my-body', MyBody)
   })
 
   class MarginedBody extends Body {
@@ -26,19 +27,19 @@ describe('Body', () => {
     marginY () { return 25 }
   }
 
-  $.cc('margined-body', MarginedBody)
+  def('margined-body', MarginedBody)
 
   beforeEach(() => {
     elem = div()
 
-    body = elem.cc.init('my-body')
+    body = make('my-body', elem[0])
 
     body.x = 30
     body.y = 40
   })
 
   it('has default width=100 and height=100', () => {
-    const body = div().cc.init('body')
+    const body = make('body', div()[0])
 
     body.updateElem()
 
@@ -76,7 +77,7 @@ describe('Body', () => {
 
   describe('actualWidth and actualHeight', () => {
     it('returns the actual width and height, respectively', () => {
-      const body = div().cc.init('margined-body')
+      const body = make('margined-body', div()[0])
 
       body.updateElem()
 

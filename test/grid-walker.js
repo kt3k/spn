@@ -1,18 +1,19 @@
-const {Grid, GridWalker} = require('../src')
-const {div} = require('dom-gen')
-const {expect} = require('chai')
+const { Grid, GridWalker } = require('../src')
+const { div } = require('dom-gen')
+const { expect } = require('chai')
+const { def, make } = require('capsid')
 
 describe('GridWalker', () => {
   let walker, grid, elem
 
   before(() => {
-    $.cc('grid-walker', GridWalker)
+    def('grid-walker', GridWalker)
   })
 
   beforeEach(() => {
     elem = div()
 
-    walker = elem.cc.init('grid-walker')
+    walker = make('grid-walker', elem[0])
 
     grid = new Grid({
       x: 100,

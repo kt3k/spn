@@ -1,16 +1,17 @@
 const { wait, Being, Animation } = require('../src')
 const { div } = require('dom-gen')
 const { expect } = require('chai')
+const { def, make } = require('capsid')
 
 describe('Being', () => {
   let being
 
   before(() => {
-    $.cc('being', Being)
+    def('being', Being)
   })
 
   beforeEach(() => {
-    being = div().cc.init('being')
+    being = make('being', div()[0])
 
     being.showAnim = () => new Animation('showing', 500)
 

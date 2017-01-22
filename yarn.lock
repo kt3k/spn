@@ -1000,6 +1000,10 @@ camelcase@^2.0.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-2.1.1.tgz#7c1d16d679a1bbe59ca02cacecfb011e201f5a1f"
 
+capsid@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/capsid/-/capsid-0.3.0.tgz#8cfb7ce56de1a46a431e9b17402345e40f574e52"
+
 caseless@~0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.11.0.tgz#715b96ea9841593cc33067923f5ec60ebda4f7d7"
@@ -1069,10 +1073,6 @@ cipher-base@^1.0.0, cipher-base@^1.0.1:
 circular-json@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/circular-json/-/circular-json-0.3.1.tgz#be8b36aefccde8b3ca7aa2d6afc07a37242c0d2d"
-
-class-component@^12.0.1:
-  version "12.0.1"
-  resolved "https://registry.yarnpkg.com/class-component/-/class-component-12.0.1.tgz#e6acf52edfcaae206a8eb7c4d4554ff28e7b1646"
 
 cli-cursor@^1.0.1:
   version "1.0.2"

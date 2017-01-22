@@ -1,3 +1,4 @@
 global.$ = global.jQuery = require('jquery')
-require('class-component')
+const capsid = require('capsid')
+require('capsid/jquery')(capsid, $)
 require('es6-promise').polyfill()
