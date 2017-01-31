@@ -6,5 +6,5 @@
 module.exports = el => {
   let offsetHeight = el.offsetHeight
 
-  offsetHeight = offsetHeight + 1
+  offsetHeight + 1
 }
