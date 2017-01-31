@@ -313,7 +313,26 @@ class Rect {
    * @return {Rect}
    */
   static windowAsRect () {
-    return Rect.ofSize($(window).width(), $(window).height())
+    return new Rect({
+      top: 0,
+      left: 0,
+      right: document.documentElement.clientWidth,
+      bottom: document.documentElement.clientHeight
+    })
+  }
+
+  /**
+   * Returns a rect which equals the size of the given element.
+   * @param {HTMLElement} el The html element
+   * @return {Rect}
+   */
+  static fromElement (el) {
+    return new Rect({
+      top: el.offsetTop,
+      left: el.offsetLeft,
+      right: el.offsetLeft + el.offsetWidth,
+      bottom: el.offsetTop + el.offsetHeight
+    })
   }
 
   /**

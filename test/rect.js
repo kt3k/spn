@@ -292,6 +292,27 @@ describe('Rect', () => {
     })
   })
 
+  describe('fromElement', () => {
+    it('returns a rect of the size of the given HTMLElement', () => {
+      const $el = $('<div />').css({
+        position: 'absolute',
+        top: 34,
+        left: 12,
+        width: 123,
+        height: 134
+      }).appendTo('body')
+
+      const rect = Rect.fromElement($el[0])
+
+      expect(rect.top).to.equal(34)
+      expect(rect.left).to.equal(12)
+      expect(rect.right).to.equal(135)
+      expect(rect.bottom).to.equal(168)
+
+      $el.remove()
+    })
+  })
+
   describe('getBestRect', () => {
     it('gets the best available rect inside it with the given horizontal and vertical ratios', () => {
       const best = rect.getBestRect({horizontal: 1, vertical: 2})
