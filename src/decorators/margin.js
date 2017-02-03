@@ -1,6 +1,6 @@
 
 /**
- * The decorator for adding `margin%` methods.
+ * The decorator for adding `margin*` methods.
  */
 module.exports = ({x, y, left, right, top, bottom}) => Cls => {
   const prototype = Cls.prototype
