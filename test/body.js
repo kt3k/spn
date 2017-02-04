@@ -64,12 +64,12 @@ describe('Body', () => {
     })
   })
 
-  describe('willShow', () => {
+  describe('show', () => {
     it('calls update{Rect,Offset}', done => {
       const foo = new Promise(resolve => { body.updateRect = resolve })
       const bar = new Promise(resolve => { body.updateOffset = resolve })
 
-      body.willShow()
+      body.show()
 
       Promise.all([foo, bar]).then(() => done())
     })
