@@ -40,6 +40,12 @@ class Body extends Prebody {
   defaultTransitionDuration () { return 500 }
 
   /**
+   * Placeholder willShow method.
+   */
+  willShow() {
+  }
+
+  /**
    * Updates the actual elem dom according to the current posture.
    * Returns a promise which resolves with the transitionDuration milliseconds.
    * @deprecated
