@@ -42,7 +42,7 @@ class Body extends Prebody {
   /**
    * Placeholder willShow method.
    */
-  willShow() {
+  willShow () {
   }
 
   /**
