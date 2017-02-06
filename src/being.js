@@ -1,6 +1,7 @@
 const applyIfFunction = require('./apply-if-function')
 const wait = require('./wait')
 const ifNumElse = require('./if-num-else')
+const triggerNoBubble = require('./trigger-no-bubble')
 
 /**
  * Being represents a dom with visual representation which has the phases, such as show, hide and disappear.
@@ -17,7 +18,9 @@ class Being {
    * @return {Promise}
    */
   show (dur) {
-    this.$el.addClass('showing')
+    this.el.classList.add('showing')
+
+    triggerNoBubble('showing', this.el)
 
     return Promise.resolve(applyIfFunction(this, this.willShow))
 
@@ -32,7 +35,9 @@ class Being {
 
       .then(() => applyIfFunction(this, this.didShow))
 
-      .then(() => this.$el.addClass('shown'))
+      .then(() => triggerNoBubble('shown', this.el))
+
+      .then(() => this.el.classList.add('shown'))
   }
 
   /**
@@ -46,7 +51,9 @@ class Being {
    * @return {Promise}
    */
   hide (dur) {
-    this.$el.removeClass('shown')
+    this.el.classList.remove('shown')
+
+    triggerNoBubble('hiding', this.el)
 
     return Promise.resolve(applyIfFunction(this, this.willHide))
 
@@ -61,7 +68,9 @@ class Being {
 
       .then(() => applyIfFunction(this, this.didHide))
 
-      .then(() => this.$el.removeClass('showing'))
+      .then(() => triggerNoBubble('hidden', this.el))
+
+      .then(() => this.el.classList.remove('showing'))
   }
 
   /**

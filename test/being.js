@@ -13,7 +13,7 @@ describe('Being', () => {
   beforeEach(() => {
     being = make('being', div()[0])
 
-    being.showAnim = () => new Animation('showing', 500)
+    being.showAnim = () => new Animation('showing', 200)
 
     being.hideAnim = () => new Animation('abc', 37)
   })
@@ -93,6 +93,28 @@ describe('Being', () => {
         expect(being.$el.hasClass('shown')).to.be.false
       })
     })
+
+    it('emits showing event at the start', done => {
+      being.el.addEventListener('showing', () => done())
+
+      being.willShow = () => done(new Error('willShow is called before emitting showing event'))
+
+      being.show()
+    })
+
+    it('emits shown event at the end', done => {
+      let didShowCalled = false
+
+      being.didShow = () => { didShowCalled = true }
+
+      being.el.addEventListener('shown', () => {
+        expect(didShowCalled).to.be.true
+
+        done()
+      })
+
+      being.show()
+    })
   })
 
   describe('hide', () => {
@@ -151,6 +173,28 @@ describe('Being', () => {
       wait(50).then(() => {
         expect(being.$el.hasClass('showing')).to.be.true
       })
+    })
+
+    it('emits hiding event at the start', done => {
+      being.el.addEventListener('hiding', () => done())
+
+      being.willHide = () => done(new Error('willHide is called before emitting hiding event'))
+
+      being.hide()
+    })
+
+    it('emits hidden event at the end', done => {
+      let didHideCalled = false
+
+      being.didHide = () => { didHideCalled = true }
+
+      being.el.addEventListener('hidden', () => {
+        expect(didHideCalled).to.be.true
+
+        done()
+      })
+
+      being.hide()
     })
   })
 
