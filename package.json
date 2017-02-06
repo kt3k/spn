@@ -1,6 +1,6 @@
 {
   "name": "spn",
-  "version": "5.2.4",
+  "version": "5.3.0",
   "description": "Sprite Engine",
   "main": "lib/index.js",
   "scripts": {
