@@ -8,7 +8,7 @@
 
 # What's this?
 
-`spn` is a library for handling lots of dom elements effectively on a page which are layouted `absolute`ly.
+`spn` is a library for handling absolutely positioned elements effectively.
 
 ## The responsibities of `spn`
 
@@ -32,8 +32,8 @@
 ## Dependencies
 
 - jQuery
-- class-component
-- Promise (es2015)
+- capsid
+- Promise
 
 # Usage
 
@@ -77,6 +77,11 @@ Reflows (repaints) the element.
 ## spn.Body
 ## spn.Animation
 ## spn.Image
+
+# Traits
+
+## spn.being
+## spn.body
 
 # Decorator APIs
 
