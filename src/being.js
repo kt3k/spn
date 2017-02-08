@@ -22,6 +22,14 @@ class Being {
 
     triggerNoBubble('showing', this.el)
 
+    return this.__show(dur)
+
+      .then(() => triggerNoBubble('shown', this.el))
+
+      .then(() => this.el.classList.add('shown'))
+  }
+
+  __show (dur) {
     return Promise.resolve(applyIfFunction(this, this.willShow))
 
       .then(() => {
@@ -34,10 +42,6 @@ class Being {
       })
 
       .then(() => applyIfFunction(this, this.didShow))
-
-      .then(() => triggerNoBubble('shown', this.el))
-
-      .then(() => this.el.classList.add('shown'))
   }
 
   /**
@@ -55,6 +59,14 @@ class Being {
 
     triggerNoBubble('hiding', this.el)
 
+    return this.__hide(dur)
+
+      .then(() => triggerNoBubble('hidden', this.el))
+
+      .then(() => this.el.classList.remove('showing'))
+  }
+
+  __hide (dur) {
     return Promise.resolve(applyIfFunction(this, this.willHide))
 
       .then(() => {
@@ -67,10 +79,6 @@ class Being {
       })
 
       .then(() => applyIfFunction(this, this.didHide))
-
-      .then(() => triggerNoBubble('hidden', this.el))
-
-      .then(() => this.el.classList.remove('showing'))
   }
 
   /**

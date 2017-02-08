@@ -73,13 +73,13 @@ class Prebody extends Being {
    * Prepares dom of the body.
    * @override
    */
-  show () {
+  __show () {
     this.updateOffset()
     this.updateRect()
 
     reflow(this.el)
 
-    return super.show()
+    return super.__show()
   }
 
   /**
