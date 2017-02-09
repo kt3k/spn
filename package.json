@@ -68,6 +68,9 @@
   },
   "standard": {
     "parser": "babel-eslint",
+    "env": [
+      "browser"
+    ],
     "globals": [
       "before",
       "beforeEach",
