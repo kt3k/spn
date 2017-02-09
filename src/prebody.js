@@ -69,6 +69,10 @@ class Prebody extends Being {
     return this.getPosture().actualHeight()
   }
 
+  show () {
+    return super.show()
+  }
+
   /**
    * Prepares dom of the body.
    * @override
@@ -80,6 +84,14 @@ class Prebody extends Being {
     reflow(this.el)
 
     return super.__show()
+  }
+
+  hide () {
+    return super.hide()
+  }
+
+  disappear () {
+    return super.disappear()
   }
 
   /**
