@@ -3,82 +3,106 @@ const wait = require('./wait')
 const ifNumElse = require('./if-num-else')
 const triggerNoBubble = require('./trigger-no-bubble')
 
+const SHOWING_CLASS = 'showing'
+const SHOWN_CLASS = 'shown'
+const SHOWING_EVENT = 'showing'
+const SHOWN_EVENT = 'shown'
+const HIDING_EVENT = 'hiding'
+const HIDDEN_EVENT = 'hidden'
+
+/**
+ * @param {Object} instance The instance
+ * @param {Function} beforeMethod The method before the main
+ * @param {Function} afterMethod The method after the main
+ * @param {Function} main The main function
+ * @return {Promise}
+ */
+const applyBeforeAfter = (instance, beforeMethod, afterMethod, main) => (
+  Promise.resolve(applyIfFunction(instance, beforeMethod))
+    .then(main)
+    .then(() => applyIfFunction(instance, afterMethod))
+)
+
+/**
+ * @param {HTMLElement} el The element
+ * @param {string} beforeEvent The event before the func
+ * @param {string} afterEvent The event after the func
+ * @param {Function} func The function
+ * @return {Promise}
+ */
+const triggerNoBubbleBeforeAfter = (el, beforeEvent, afterEvent, func) => {
+  triggerNoBubble(beforeEvent, el)
+
+  return func().then(() => triggerNoBubble(afterEvent, el))
+}
+
+/**
+ * @param {HTMLElement} el The element
+ * @param {string} beforeClass The class which toogled before the func
+ * @param {string} afterClass The class which toogled after the func
+ * @param {boolean} toggleState True for adding, false for removing
+ * @param {Function} func The function
+ * @return {Promise}
+ */
+const toggleClassBeforeAfter = (el, beforeClass, afterClass, toggleState, func) => {
+  el.classList.toggle(beforeClass, toggleState)
+
+  return func().then(() => el.classList.toggle(afterClass, toggleState))
+}
+
 /**
  * Being represents a dom with visual representation which has the phases, such as show, hide and disappear.
  */
 class Being {
+
   /**
    * Shows the element using the animation returned by showAnim.
-   * 表示時アニメーション (showAnim) に従ってアニメーションさせる。
    *
    * This invokes `willShow` before and `didShow` after.
-   * 事前に willShow hook, 事後に didShow hook を呼び出す。
+   * This appends `showing` class before and `shown` class after.
+   * This emits `showing` event before and `shown` event after.
    *
-   * @param {Number} dur The duration of the animation
+   * @param {number} dur The duration of the animation
    * @return {Promise}
    */
   show (dur) {
-    this.el.classList.add('showing')
-
-    triggerNoBubble('showing', this.el)
-
-    return this.__show(dur)
-
-      .then(() => triggerNoBubble('shown', this.el))
-
-      .then(() => this.el.classList.add('shown'))
+    return toggleClassBeforeAfter(this.el, SHOWING_CLASS, SHOWN_CLASS, true, () => triggerNoBubbleBeforeAfter(this.el, SHOWING_EVENT, SHOWN_EVENT, () => this.__show(dur)))
   }
 
   __show (dur) {
-    return Promise.resolve(applyIfFunction(this, this.willShow))
+    return applyBeforeAfter(this, this.willShow, this.didShow, () => {
+      const anim = applyIfFunction(this, this.showAnim)
 
-      .then(() => {
-        const anim = applyIfFunction(this, this.showAnim)
-
-        return Promise.all([
-          wait(ifNumElse(this.constructor.SHOW_DURATION, 0)),
-          anim && anim.apply(this.el, dur)
-        ])
-      })
-
-      .then(() => applyIfFunction(this, this.didShow))
+      return Promise.all([
+        wait(ifNumElse(this.constructor.SHOW_DURATION, 0)),
+        anim && anim.apply(this.el, dur)
+      ])
+    })
   }
 
   /**
    * Hides the element using the animation returned by hideAnim.
-   * 非表示時アニメーション (hideAnim) に従ってアニメーションさせる。
    *
    * This invokes `willHide` before and `didHide` after.
-   * 事前に willHide hook, 事後に didHide hook を呼び出す。
+   * This removes `shown` class before and `showing` class after.
+   * This emits `hiding` event before and `hidden` event after.
    *
-   * @param {Number} dur The duration of the animation
+   * @param {number} dur The duration of the animation
    * @return {Promise}
    */
   hide (dur) {
-    this.el.classList.remove('shown')
-
-    triggerNoBubble('hiding', this.el)
-
-    return this.__hide(dur)
-
-      .then(() => triggerNoBubble('hidden', this.el))
-
-      .then(() => this.el.classList.remove('showing'))
+    return toggleClassBeforeAfter(this.el, SHOWN_CLASS, SHOWING_CLASS, false, () => triggerNoBubbleBeforeAfter(this.el, HIDING_EVENT, HIDDEN_EVENT, () => this.__hide(dur)))
   }
 
   __hide (dur) {
-    return Promise.resolve(applyIfFunction(this, this.willHide))
+    return applyBeforeAfter(this, this.willHide, this.didHide, () => {
+      const anim = applyIfFunction(this, this.hideAnim)
 
-      .then(() => {
-        const anim = applyIfFunction(this, this.hideAnim)
-
-        return Promise.all([
-          wait(ifNumElse(this.constructor.SHOW_DURATION, 0)),
-          anim && anim.apply(this.el, dur)
-        ])
-      })
-
-      .then(() => applyIfFunction(this, this.didHide))
+      return Promise.all([
+        wait(ifNumElse(this.constructor.SHOW_DURATION, 0)),
+        anim && anim.apply(this.el, dur)
+      ])
+    })
   }
 
   /**
