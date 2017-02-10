@@ -1,5 +1,5 @@
 const Point = require('../src/point')
-const {UP, LEFT, RIGHT, DOWN} = require('../src/dirs')
+const {UP, LEFT, RIGHT, DOWN} = require('../src/const/dirs')
 
 const {expect} = require('chai')
 
