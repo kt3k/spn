@@ -398,4 +398,55 @@ describe('Rect', () => {
       expect(point.y).to.equal(rect.top)
     })
   })
+
+  describe('slice', () => {
+    it('slices a new rect from the given params', () => {
+      const rect0 = rect.slice({ top: 10, left: 15, right: 20, bottom: 25 })
+      expect(rect0.top).to.equal(110)
+      expect(rect0.left).to.equal(315)
+      expect(rect0.right).to.equal(480)
+      expect(rect0.bottom).to.equal(575)
+
+      const rect1 = rect.slice({ top: 10, left: 15, width: 20, height: 25 })
+      expect(rect1.top).to.equal(110)
+      expect(rect1.left).to.equal(315)
+      expect(rect1.right).to.equal(335)
+      expect(rect1.bottom).to.equal(135)
+
+      const rect2 = rect.slice({ bottom: 10, right: 15, width: 20, height: 25 })
+      expect(rect2.top).to.equal(565)
+      expect(rect2.left).to.equal(465)
+      expect(rect2.right).to.equal(485)
+      expect(rect2.bottom).to.equal(590)
+
+      const rect3 = rect.slice({ top: 10, right: 15 })
+      expect(rect3.top).to.equal(110)
+      expect(rect3.left).to.equal(300)
+      expect(rect3.right).to.equal(485)
+      expect(rect3.bottom).to.equal(600)
+    })
+
+    it('slices by the percentage values', () => {
+      const rect0 = rect.slice({ top: '50%' })
+      expect(rect0.top).to.equal(350)
+      expect(rect0.left).to.equal(300)
+      expect(rect0.right).to.equal(500)
+      expect(rect0.bottom).to.equal(600)
+    })
+
+    it('throws when the given value is not a number nor a percentage value', () => {
+      expect(() => rect.slice({ top: 'a' })).to.throw(Error)
+      expect(() => rect.slice({ left: '%' })).to.throw(Error)
+    })
+
+    it('throws when too much params are given', () => {
+      expect(() => rect.slice({ top: 10, height: 10, bottom: 10 })).to.throw(Error)
+      expect(() => rect.slice({ left: 10, width: 10, right: 10 })).to.throw(Error)
+    })
+
+    it('throws when only width or height is given', () => {
+      expect(() => rect.slice({ height: 10 })).to.throw(Error)
+      expect(() => rect.slice({ width: 10 })).to.throw(Error)
+    })
+  })
 })

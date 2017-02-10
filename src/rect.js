@@ -2,6 +2,7 @@ const ifNumElse = require('./if-num-else')
 const Interval = require('./interval')
 const Area = require('./area')
 const Point = require('./point')
+const { Errors } = require('./const')
 
 /**
  * Rect model represents the static rectangle in a screen.
@@ -394,6 +395,50 @@ class Rect {
    */
   topCenter () {
     return new Point(this.centerX(), this.top)
+  }
+
+  /**
+   * @param {number|string} top The top margin
+   * @param {number|string} height The height
+   * @param {number|string} bottom The bottom margin
+   */
+  sliceVertical (top, height, bottom) {
+    try {
+      return this.horizontal.by(this.vertical.slice(top, height, bottom))
+    } catch (e) {
+      switch (e.code) {
+        case Errors.INTERVAL_SLICE_ERROR_TOO_MUCH_ARGUMENTS.code:
+          throw error(ERRORS.RECT_SLICE_ERROR_TOO_MUCH_ARGUMENTS_VERTICALLY)
+        case Errors.INTERVAL_SLICE_ERROR_ONLY_WIDTH.code:
+          throw error(ERRORS.RECT_SLICE_ERROR_ONLY_HEIGHT)
+        default:
+          throw e
+      }
+    }
+  }
+
+  /**
+   * @param {number|string} left The left margin
+   * @param {number|string} width The width
+   * @param {number|string} right The right margin
+   */
+  sliceHorizontal (left, width, right) {
+    try {
+      return this.horizontal.slice(left, width, right).by(this.vertical)
+    } catch (e) {
+      switch (e.code) {
+        case Errors.INTERVAL_SLICE_ERROR_TOO_MUCH_ARGUMENTS.code:
+          throw error(ERRORS.RECT_SLICE_ERROR_TOO_MUCH_ARGUMENTS_HORIZONTALLY)
+        case Errors.INTERVAL_SLICE_ERROR_ONLY_WIDTH.code:
+          throw error(ERRORS.RECT_SLICE_ERROR_ONLY_WIDTH)
+        default:
+          throw e
+      }
+    }
+  }
+
+  slice ({ top, left, right, bottom, width, height }) {
+    return this.sliceHorizontal(left, width, right).sliceVertical(top, height, bottom)
   }
 }
 

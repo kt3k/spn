@@ -1,4 +1,4 @@
-const {UP, LEFT, RIGHT, DOWN} = require('./const/dirs')
+const { DIRS: { UP, LEFT, RIGHT, DOWN } } = require('./const')
 
 /**
  * The model of the positions of points in 2-dimensional space.
