@@ -42,16 +42,14 @@ Via npm
     npm install spn
 
 ```js
-const {Body} = require('spn')
+const { Body } = require('spn')
+const { component } = require('capsid')
 
+@component
 class MyCharacter extends Body {
     ...
 }
-
-$.cc('my-character', MyCharacter)
 ```
-
-**NOTE:** You need to load $ (jquery) and class-component globally.
 
 # API
 
