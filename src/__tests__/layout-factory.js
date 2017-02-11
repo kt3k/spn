@@ -1,5 +1,5 @@
-const {LayoutFactory, Rect, Grid} = require('../src')
-const {expect} = require('chai')
+const { LayoutFactory, Rect, Grid } = require('../')
+const { expect } = require('chai')
 
 describe('LayoutFactory', () => {
   let factory

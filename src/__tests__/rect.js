@@ -1,4 +1,4 @@
-const { Rect, Grid, Point } = require('../src')
+const { Rect, Grid, Point } = require('../')
 const { expect } = require('chai')
 
 describe('Rect', () => {

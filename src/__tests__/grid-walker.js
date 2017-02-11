@@ -1,4 +1,4 @@
-const { Grid, GridWalker } = require('../src')
+const { Grid, GridWalker } = require('../')
 const { div } = require('dom-gen')
 const { expect } = require('chai')
 const { def, make } = require('capsid')

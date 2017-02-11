@@ -1,5 +1,5 @@
-const Interval = require('../src/interval')
-const {expect} = require('chai')
+const { Interval } = require('../')
+const { expect } = require('chai')
 
 describe('Interval', () => {
   it('switch high and low when they are given oppositely', () => {

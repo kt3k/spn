@@ -1,5 +1,5 @@
-const {Image, DirStateImageMap} = require('../src')
-const {expect} = require('chai')
+const { Image, DirStateImageMap } = require('../')
+const { expect } = require('chai')
 
 describe('DirStateImageMap', () => {
   let image, dirStateImageMap

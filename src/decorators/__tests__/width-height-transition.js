@@ -1,6 +1,5 @@
-const {width, height, transition} = require('../../src').decorators
-
-const {expect} = require('chai')
+const { width, height, transition } = require('../')
+const { expect } = require('chai')
 
 class Foo {}
 

@@ -3,6 +3,7 @@ const Interval = require('./interval')
 const Area = require('./area')
 const Point = require('./point')
 const { Errors } = require('./const')
+const { error } = require('./util')
 
 /**
  * Rect model represents the static rectangle in a screen.

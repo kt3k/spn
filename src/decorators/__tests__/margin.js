@@ -1,5 +1,5 @@
-const {margin} = require('../../src').decorators
-const {expect} = require('chai')
+const { margin } = require('../')
+const { expect } = require('chai')
 
 describe('margin({x, y, left, right, top, bottom})', () => {
   it('adds margin methods to the decorated class', () => {

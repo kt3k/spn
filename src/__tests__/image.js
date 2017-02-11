@@ -1,6 +1,6 @@
-const {Image} = require('../src')
+const { Image } = require('../')
 const imgTag = require('dom-gen').img
-const {expect} = require('chai')
+const { expect } = require('chai')
 
 describe('Image', () => {
   describe('apply', () => {

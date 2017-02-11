@@ -1,6 +1,6 @@
-const {animation} = require('../../src').decorators
-const {Animation} = require('../../src')
-const {expect} = require('chai')
+const { animation } = require('../')
+const { Animation } = require('../../')
+const { expect } = require('chai')
 
 describe('animation({show, hide})', () => {
   it('adds `showAnim` and `hideAnim` methods', () => {

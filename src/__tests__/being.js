@@ -1,4 +1,4 @@
-const { wait, Being, Animation } = require('../src')
+const { wait, Being, Animation } = require('../')
 const { div } = require('dom-gen')
 const { expect } = require('chai')
 const { def, make } = require('capsid')

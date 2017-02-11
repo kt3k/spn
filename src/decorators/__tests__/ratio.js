@@ -1,5 +1,5 @@
-const {ratio} = require('../../src').decorators
-const {expect} = require('chai')
+const { ratio } = require('../')
+const { expect } = require('chai')
 
 describe('ratio({x, y})', () => {
   it('adds ratioX and ratioY methods', () => {

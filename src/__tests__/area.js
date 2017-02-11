@@ -1,5 +1,5 @@
-const {expect} = require('chai')
-const {Area} = require('../src')
+const { expect } = require('chai')
+const { Area } = require('../')
 
 describe('Area', () => {
   let area

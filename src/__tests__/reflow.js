@@ -1,4 +1,4 @@
-const { reflow } = require('../src')
+const { reflow } = require('../')
 const { div } = require('dom-gen')
 const { expect } = require('chai')
 

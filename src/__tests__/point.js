@@ -1,7 +1,6 @@
-const Point = require('../src/point')
-const {UP, LEFT, RIGHT, DOWN} = require('../src/const/dirs')
-
-const {expect} = require('chai')
+const { Point } = require('../')
+const { UP, LEFT, RIGHT, DOWN } = require('../const/dirs')
+const { expect } = require('chai')
 
 describe('Point', () => {
   describe('up, left, right and down', () => {
