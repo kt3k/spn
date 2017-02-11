@@ -1,6 +1,5 @@
 exports.wait = require('./wait')
 exports.reflow = require('./reflow')
-exports.ifNumElse = require('./if-num-else')
 
 exports.Animation = require('./animation')
 exports.Area = require('./area')
@@ -17,7 +16,6 @@ exports.Point = require('./point')
 exports.Posture = require('./posture')
 exports.Prebody = require('./prebody')
 exports.Rect = require('./rect')
-
 
 const decorators = require('./decorators')
 exports.decorators = decorators

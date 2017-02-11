@@ -1,9 +1,8 @@
-const ifNumElse = require('./if-num-else')
 const Interval = require('./interval')
 const Area = require('./area')
 const Point = require('./point')
 const { Errors } = require('./const')
-const { error } = require('./util')
+const { error, ifNumElse } = require('./util')
 
 /**
  * Rect model represents the static rectangle in a screen.
@@ -409,9 +408,9 @@ class Rect {
     } catch (e) {
       switch (e.code) {
         case Errors.INTERVAL_SLICE_ERROR_TOO_MUCH_ARGUMENTS.code:
-          throw error(ERRORS.RECT_SLICE_ERROR_TOO_MUCH_ARGUMENTS_VERTICALLY)
+          throw error(Errors.RECT_SLICE_ERROR_TOO_MUCH_ARGUMENTS_VERTICALLY)
         case Errors.INTERVAL_SLICE_ERROR_ONLY_WIDTH.code:
-          throw error(ERRORS.RECT_SLICE_ERROR_ONLY_HEIGHT)
+          throw error(Errors.RECT_SLICE_ERROR_ONLY_HEIGHT)
         default:
           throw e
       }
@@ -429,9 +428,9 @@ class Rect {
     } catch (e) {
       switch (e.code) {
         case Errors.INTERVAL_SLICE_ERROR_TOO_MUCH_ARGUMENTS.code:
-          throw error(ERRORS.RECT_SLICE_ERROR_TOO_MUCH_ARGUMENTS_HORIZONTALLY)
+          throw error(Errors.RECT_SLICE_ERROR_TOO_MUCH_ARGUMENTS_HORIZONTALLY)
         case Errors.INTERVAL_SLICE_ERROR_ONLY_WIDTH.code:
-          throw error(ERRORS.RECT_SLICE_ERROR_ONLY_WIDTH)
+          throw error(Errors.RECT_SLICE_ERROR_ONLY_WIDTH)
         default:
           throw e
       }

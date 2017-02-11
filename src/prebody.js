@@ -1,11 +1,7 @@
-const wait = require('./wait')
-const Being = require('./being')
-const Posture = require('./posture')
-const reflow = require('./reflow')
+const { wait, Being, reflow, Area } = require('./')
 const Point = require('./point')
-const Area = require('./area')
-const ifNumElse = require('./if-num-else')
-const applyIfFunction = require('./apply-if-function')
+const Posture = require('./posture')
+const { ifNumElse, applyIfFunction } = require('./util')
 const { DEFAULT_TRANSITION_DURATION } = require('./const')
 
 /**

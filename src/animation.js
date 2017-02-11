@@ -1,6 +1,5 @@
-const wait = require('./wait')
-const reflow = require('./reflow')
-const ifNumElse = require('./if-num-else')
+const { wait, reflow } = require('./')
+const { ifNumElse } = require('./util')
 
 const ANIMATION_PROP_NAME = '-webkit-animation'
 

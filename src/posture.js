@@ -1,4 +1,4 @@
-const ifNumElse = require('./if-num-else')
+const { ifNumElse } = require('./util')
 const Rect = require('./rect')
 
 /**

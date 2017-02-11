@@ -1,5 +1,5 @@
 const Rect = require('./rect')
-const ifNumElse = require('./if-num-else')
+const { ifNumElse } = require('./util')
 
 /**
  * Grid model represents the grid layout.
