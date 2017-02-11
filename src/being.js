@@ -1,6 +1,5 @@
 const wait = require('./wait')
-const { applyIfFunction, ifNumElse } = require('./util')
-const triggerNoBubble = require('./trigger-no-bubble')
+const { applyIfFunction, ifNumElse, triggerNoBubble } = require('./util')
 
 const SHOWING_CLASS = 'showing'
 const SHOWN_CLASS = 'shown'
