@@ -1,5 +1,6 @@
 # TODO
 
+- deprecate Body in favor of Prebody traits
 - deprecate Grid
 - deprecate GridWalker
 

@@ -1,4 +1,5 @@
 const Body = require('../src/body')
+const Prebody = require('../src/prebody')
 const Rect = require('../src/rect')
 const Point = require('../src/point')
 const Area = require('../src/area')
@@ -121,6 +122,17 @@ describe('Body', () => {
         expect(body.posture.height).to.equal(140)
         done()
       })
+    })
+
+    it('uses transition-duration 500ms if defaultTransitionDuration method is unavailable', () => {
+      class X extends Prebody {
+      }
+      def('engage-test-x', X)
+      const body = make('engage-test-x', div()[0])
+
+      body.engage()
+
+      expect(body.el.style.transitionDuration).to.equal('500ms')
     })
   })
 

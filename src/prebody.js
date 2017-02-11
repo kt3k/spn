@@ -6,6 +6,7 @@ const Point = require('./point')
 const Area = require('./area')
 const ifNumElse = require('./if-num-else')
 const applyIfFunction = require('./apply-if-function')
+const { DEFAULT_TRANSITION_DURATION } = require('./const')
 
 /**
  * Converts the pixel to the number.
@@ -183,7 +184,7 @@ class Prebody extends Being {
    * @return {Promise}
    */
   engage (duration) {
-    duration = ifNumElse(duration, this.defaultTransitionDuration())
+    duration = ifNumElse(duration, applyIfFunction(this, this.defaultTransitionDuration) || DEFAULT_TRANSITION_DURATION)
 
     this.elem.css('transition-duration', duration + 'ms')
 
