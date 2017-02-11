@@ -66,29 +66,44 @@ export default class Prebody extends Being {
     return this.getPosture().actualHeight()
   }
 
-  show () {
-    return super.show()
+  /**
+   * @param {number} dur The duration
+   */
+  show (dur) {
+    return super.show(dur)
   }
 
   /**
-   * Prepares dom of the body.
-   * @override
+   * @param {number} dur The duration
    */
-  __show () {
+  __show (dur) {
     this.updateOffset()
     this.updateRect()
 
     reflow(this.el)
 
-    return super.__show()
+    return super.__show(dur)
   }
 
-  hide () {
-    return super.hide()
+  /**
+   * @param {number} dur The duration
+   */
+  hide (dur) {
+    return super.hide(dur)
   }
 
-  disappear () {
-    return super.disappear()
+  /**
+   * @param {number} dur The duration
+   */
+  __hide (dur) {
+    return super.__hide(dur)
+  }
+
+  /**
+   * @param {number} dur The duration
+   */
+  disappear (dur) {
+    return super.disappear(dur)
   }
 
   /**
