@@ -1,9 +1,9 @@
-const Body = require('./body')
+import Body from './body'
 
 /**
  * A GridWalker is a Body which walks along the given Grid.
  */
-class GridWalker extends Body {
+export default class GridWalker extends Body {
   /**
    * @override
    */
@@ -203,5 +203,3 @@ class GridWalker extends Body {
     return this.moveOnGrid(-1, 0, dur)
   }
 }
-
-module.exports = GridWalker

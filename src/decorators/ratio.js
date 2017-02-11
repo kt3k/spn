@@ -3,13 +3,13 @@
  * @param {number} x The ratioX value
  * @param {number} y The ratioY value
  */
-module.exports = ({x, y}) => Cls => {
+const ratio = ({x, y}) => Cls => {
   if (x) {
-    module.exports.x(x)(Cls)
+    ratio.x(x)(Cls)
   }
 
   if (y) {
-    module.exports.y(y)(Cls)
+    ratio.y(y)(Cls)
   }
 
   return Cls
@@ -19,7 +19,7 @@ module.exports = ({x, y}) => Cls => {
  * Adds ratioX method to the class.
  * @param {number} x The ratioX value
  */
-module.exports.x = x => {
+ratio.x = x => {
   const d = Cls => {
     Cls.prototype.ratioX = () => x
     return Cls
@@ -32,7 +32,9 @@ module.exports.x = x => {
  * Adds ratioY method to the class.
  * @param {number} y The ratioY value
  */
-module.exports.y = y => Cls => {
+ratio.y = y => Cls => {
   Cls.prototype.ratioY = () => y
   return Cls
 }
+
+export default ratio

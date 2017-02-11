@@ -1,5 +1,6 @@
-const { Errors } = require('./const')
-const { error } = require('./util')
+import { Rect } from './index'
+import { Errors } from './const/index'
+import { error } from './util/index'
 
 const rePercent = /(-?[0-9]+(\.[0-9]*)?)%$/
 
@@ -32,7 +33,7 @@ const calc = (value, length) => {
  *
  * Interval is immutable.
  */
-class Interval {
+export default class Interval {
   /**
    * @param {number} high The high of the interval
    * @param {number} low The low of the interval
@@ -71,8 +72,6 @@ class Interval {
    * @param {Rect}
    */
   by (interval) {
-    const Rect = require('./rect')
-
     return Rect.ofIntervals(this, interval)
   }
 
@@ -163,5 +162,3 @@ class Interval {
     return new Interval(size, 0)
   }
 }
-
-module.exports = Interval

@@ -1,12 +1,13 @@
-const { wait, reflow } = require('./')
-const { ifNumElse } = require('./util')
+import wait from './wait'
+import reflow from './reflow'
+import { ifNumElse } from './util/index'
 
 const ANIMATION_PROP_NAME = '-webkit-animation'
 
 /**
  * Animation class represents the css animation.
  */
-class Animation {
+export default class Animation {
   /**
    * @param {String} name The name of the css animation (keyframes)
    * @param {Number} duration The duration of the animation
@@ -32,5 +33,3 @@ class Animation {
     return wait(this.duration)
   }
 }
-
-module.exports = Animation

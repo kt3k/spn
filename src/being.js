@@ -1,5 +1,5 @@
-const wait = require('./wait')
-const { applyIfFunction, ifNumElse, triggerNoBubble } = require('./util')
+import wait from './wait'
+import { applyIfFunction, ifNumElse, triggerNoBubble } from './util/index'
 
 const SHOWING_CLASS = 'showing'
 const SHOWN_CLASS = 'shown'
@@ -51,7 +51,7 @@ const toggleClassBeforeAfter = (el, beforeClass, afterClass, toggleState, func) 
 /**
  * Being represents a dom with visual representation which has the phases, such as show, hide and disappear.
  */
-class Being {
+export default class Being {
 
   /**
    * Shows the element using the animation returned by showAnim.
@@ -113,5 +113,3 @@ class Being {
     return this.hide(dur).then(() => this.$el.remove())
   }
 }
-
-module.exports = Being

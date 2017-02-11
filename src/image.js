@@ -1,7 +1,7 @@
 /**
  * The image object
  */
-class Image {
+export default class Image {
   /**
    * @constructor
    * @param {string} src The url of the image
@@ -38,5 +38,3 @@ class Image {
     return 'scale(' + this.scaleX + ', ' + this.scaleY + ')'
   }
 }
-
-module.exports = Image

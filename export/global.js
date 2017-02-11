@@ -1,1 +1,0 @@
-global.spn = require('../src/')

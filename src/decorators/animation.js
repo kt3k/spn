@@ -1,19 +1,19 @@
-const Animation = require('../animation')
+import Animation from '../animation'
 
 /**
  * Adds `hideAnim` and `showAnim` methods to the decorated class with the given params.
  * @param {Array} show The show animation params
  * @param {Array} hide The hide animation params
  */
-module.exports = ({show, hide}) => Cls => {
+const animation = ({show, hide}) => Cls => {
   if (show) {
     const [name, dur] = show
-    module.exports.show(name, dur)(Cls)
+    animation.show(name, dur)(Cls)
   }
 
   if (hide) {
     const [name, dur] = hide
-    module.exports.hide(name, dur)(Cls)
+    animation.hide(name, dur)(Cls)
   }
 
   return Cls
@@ -24,7 +24,7 @@ module.exports = ({show, hide}) => Cls => {
  * @param {string} name The animation name (of css animation which is available in the page context)
  * @param {number} [dur=500] The duration of the animation
  */
-module.exports.hide = (name, dur = 500) => Cls => {
+animation.hide = (name, dur = 500) => Cls => {
   Cls.prototype.hideAnim = () => new Animation(name, dur)
   return Cls
 }
@@ -34,7 +34,7 @@ module.exports.hide = (name, dur = 500) => Cls => {
  * @param {string} name The animation name (of css animation which is available in the page context)
  * @param {number} [dur=500] The duration of the animation
  */
-module.exports.show = (name, dur = 500) => {
+animation.show = (name, dur = 500) => {
   const d = Cls => {
     Cls.prototype.showAnim = () => new Animation(name, dur)
     return Cls
@@ -42,3 +42,5 @@ module.exports.show = (name, dur = 500) => {
 
   return d
 }
+
+export default animation

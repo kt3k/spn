@@ -5,4 +5,4 @@
  * @param {object} result The value to resolve
  * @return {Promise}
  */
-module.exports = (n, result) => new Promise(resolve => setTimeout(() => resolve(result), n))
+export default (n, result) => new Promise(resolve => setTimeout(() => resolve(result), n))

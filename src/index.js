@@ -1,26 +1,20 @@
-exports.wait = require('./wait')
-exports.reflow = require('./reflow')
+export { default as wait } from './wait'
+export { default as reflow } from './reflow'
 
-exports.Animation = require('./animation')
-exports.Area = require('./area')
-exports.Being = require('./being')
-exports.Body = require('./body')
-exports.DirStateImageMap = require('./dir-state-image-map')
-exports.DIRS = require('./const/dirs')
-exports.Grid = require('./grid')
-exports.GridWalker = require('./grid-walker')
-exports.Image = require('./image')
-exports.Interval = require('./interval')
-exports.LayoutFactory = require('./layout-factory')
-exports.Point = require('./point')
-exports.Posture = require('./posture')
-exports.Prebody = require('./prebody')
-exports.Rect = require('./rect')
+export { default as Animation } from './animation'
+export { default as Area } from './area'
+export { default as Being } from './being'
+export { default as Body } from './body'
+export { default as DirStateImageMap } from './dir-state-image-map'
+export { DIRS } from './const/index'
+export { default as Grid } from './grid'
+export { default as GridWalker } from './grid-walker'
+export { default as Image } from './image'
+export { default as Interval } from './interval'
+export { default as LayoutFactory } from './layout-factory'
+export { default as Point } from './point'
+export { default as Posture } from './posture'
+export { default as Prebody } from './prebody'
+export { default as Rect } from './rect'
 
-const decorators = require('./decorators')
-exports.animation = decorators.animation
-exports.height = decorators.animation
-exports.width = decorators.width
-exports.margin = decorators.margin
-exports.ratio = decorators.ratio
-exports.transition = decorators.transition
+export { animation, height, width, margin, ratio, transition } from './decorators/index'

@@ -1,5 +1,5 @@
-const Rect = require('./rect')
-const { ifNumElse } = require('./util')
+import Rect from './rect'
+import { ifNumElse } from './util/index'
 
 /**
  * Grid model represents the grid layout.
@@ -10,7 +10,7 @@ const { ifNumElse } = require('./util')
  *
  * Usually cell width and height are equal to or less then unit width and height respectively.
  */
-class Grid {
+export default class Grid {
   /**
    * @param {Number} x The x coordinate
    * @param {Number} y The y coordinate
@@ -155,5 +155,3 @@ class Grid {
     return this.toRect()
   }
 }
-
-module.exports = Grid

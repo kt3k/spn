@@ -1,7 +1,7 @@
 /**
  * The model of the mapping from the direction and state to its corresponding image.
  */
-class DirStateImageMap {
+export default class DirStateImageMap {
   constructor () {
     this.imageMap = {}
   }
@@ -44,5 +44,3 @@ class DirStateImageMap {
     return `${dir}/${state}`
   }
 }
-
-module.exports = DirStateImageMap

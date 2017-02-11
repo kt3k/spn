@@ -1,12 +1,12 @@
-const Rect = require('./rect')
-const Grid = require('./grid')
+import Rect from './rect'
+import Grid from './grid'
 
 /**
  * The abstact class for dimension factories of various objects in scenes.
  *
  * @abstract
  */
-class LayoutFactory {
+export default class LayoutFactory {
   /**
    * Creates a grid with the given options.
    *
@@ -27,5 +27,3 @@ class LayoutFactory {
     return new Rect(options)
   }
 }
-
-module.exports = LayoutFactory

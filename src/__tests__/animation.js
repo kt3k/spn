@@ -1,4 +1,4 @@
-const { Animation } = require('../')
+import { Animation } from '../'
 const { div } = require('dom-gen')
 const { expect } = require('chai')
 

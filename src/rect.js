@@ -1,15 +1,16 @@
-const Interval = require('./interval')
-const Area = require('./area')
-const Point = require('./point')
-const { Errors } = require('./const')
-const { error, ifNumElse } = require('./util')
+import { Grid } from './index'
+import Interval from './interval'
+import Area from './area'
+import Point from './point'
+import { Errors } from './const/index'
+import { error, ifNumElse } from './util/index'
 
 /**
  * Rect model represents the static rectangle in a screen.
  *
  * Rect is immutable.
  */
-class Rect {
+export default class Rect {
   /**
    * @param {number} top The top position
    * @param {number} right The right position
@@ -264,8 +265,6 @@ class Rect {
    * @return {Grid}
    */
   toGrid () {
-    const Grid = require('./grid')
-
     return new Grid({
       x: this.centerX(),
       y: this.centerY(),
@@ -441,5 +440,3 @@ class Rect {
     return this.sliceHorizontal(left, width, right).sliceVertical(top, height, bottom)
   }
 }
-
-module.exports = Rect

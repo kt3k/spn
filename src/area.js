@@ -1,7 +1,7 @@
 /**
  * The model of the size of 2-dimensional rectangles.
  */
-class Area {
+export default class Area {
   /**
    * @param {number} width The width
    * @param {number} height The height
@@ -32,5 +32,3 @@ class Area {
     return new Area(size, size)
   }
 }
-
-module.exports = Area

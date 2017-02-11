@@ -4,7 +4,7 @@
  * @param {string} message The error message
  * @return {Error}
  */
-module.exports = ({ code, message }) => {
+export default ({ code, message }) => {
   const error = new Error(message)
 
   error.code = code

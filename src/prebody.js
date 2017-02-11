@@ -1,8 +1,8 @@
-const { wait, Being, reflow, Area } = require('./')
-const Point = require('./point')
-const Posture = require('./posture')
-const { ifNumElse, applyIfFunction } = require('./util')
-const { DEFAULT_TRANSITION_DURATION } = require('./const')
+import { wait, Being, reflow, Area } from './index'
+import Point from './point'
+import Posture from './posture'
+import { ifNumElse, applyIfFunction } from './util/index'
+import { DEFAULT_TRANSITION_DURATION } from './const/index'
 
 /**
  * Converts the pixel to the number.
@@ -16,7 +16,7 @@ const pxToNum = px => +px.slice(0, -2)
  *
  * Unlike Body, Prebody works as a treat.
  */
-class Prebody extends Being {
+export default class Prebody extends Being {
 
   /**
    * Gets (or creates if unavailable) the posture of the prebody.
@@ -239,5 +239,3 @@ class Prebody extends Being {
     return new Area(posture.width, posture.height)
   }
 }
-
-module.exports = Prebody

@@ -1,12 +1,12 @@
-const wait = require('./wait')
-const reflow = require('./reflow')
-const Prebody = require('./prebody')
+import wait from './wait'
+import reflow from './reflow'
+import Prebody from './prebody'
 
 /**
  * Body has width, height, position and information about how it put at the postion.
  * @abstract
  */
-class Body extends Prebody {
+export default class Body extends Prebody {
   constructor () {
     super()
 
@@ -98,5 +98,3 @@ class Body extends Prebody {
     reflow(this.el)
   }
 }
-
-module.exports = Body

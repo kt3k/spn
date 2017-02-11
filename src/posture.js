@@ -1,12 +1,12 @@
-const { ifNumElse } = require('./util')
-const Rect = require('./rect')
+import { ifNumElse } from './util/index'
+import Rect from './rect'
 
 /**
  * Posture is the model of the information about how the Body is placed and arranged to its position.
  *
  * @class
  */
-class Posture {
+export default class Posture {
   /**
    * @param {Number} [width=100] The width
    * @param {Number} [height=100] The height
@@ -212,5 +212,3 @@ class Posture {
     this.height = tangent.height()
   }
 }
-
-module.exports = Posture

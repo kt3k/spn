@@ -4,4 +4,4 @@
  * @param {number} defaultValue The default value
  * @return {number}
  */
-module.exports = (num, defaultValue) => typeof num === 'number' ? num : defaultValue
+export default (num, defaultValue) => typeof num === 'number' ? num : defaultValue

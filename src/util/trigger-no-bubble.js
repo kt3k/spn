@@ -3,6 +3,6 @@
  * @param {string} type The event type
  * @param {HTMLElement} el The element
  */
-module.exports = (type, el) => {
+export default (type, el) => {
   el.dispatchEvent(new CustomEvent(type, { bubbles: false }))
 }

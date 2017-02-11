@@ -1,6 +1,7 @@
-exports.animation = require('./animation')
-exports.ratio = require('./ratio')
-exports.transition = require('./transition')
-exports.width = require('./width')
-exports.height = require('./height')
-exports.margin = require('./margin')
+export { default as animation } from './animation'
+export { default as ratio } from './ratio'
+import * as transition from './transition'
+export { transition }
+export { default as width } from './width'
+export { default as height } from './height'
+export { default as margin } from './margin'

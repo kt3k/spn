@@ -3,6 +3,6 @@
  * @param {number} width The width
  * @param {Function} Cls The class to decorate
  */
-module.exports = width => Cls => {
+export default width => Cls => {
   Cls.prototype.width = () => width
 }

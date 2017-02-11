@@ -2,17 +2,14 @@
   "name": "spn",
   "version": "5.6.0",
   "description": "Sprite Engine",
-  "main": "lib/index.js",
+  "main": "spn.js",
   "scripts": {
     "test": "karma start karma.conf.js",
     "lint": "standard",
-    "clean": "rimraf lib && rimraf spn.* && rimraf coverage",
+    "clean": "rimraf spn.* && rimraf coverage",
     "doc": "esdoc -c esdoc.json",
     "codecov": "cat coverage/*/lcov.info | codecov",
-    "dist": "npm-run-all dist:**",
-    "dist:lib": "babel src -d lib",
-    "dist:spn.js": "browserify -t babelify export/global.js > spn.js",
-    "dist:spn.min.js": "browserify -t babelify export/global.js | ./node_modules/.bin/uglifyjs --mangle --compress > spn.min.js",
+    "dist": "rollup -f umd -n spn src/index.js | buble | tee spn.js | uglifyjs -m -c > spn.min.js",
     "prepublish": "npm run clean && npm run dist"
   },
   "repository": {
@@ -36,12 +33,11 @@
     "jquery": ">=2.0.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.14.0",
-    "babel-eslint": "^7.1.0",
     "babel-plugin-istanbul": "^4.0.0",
     "babel-preset-es2015": "^6.14.0",
     "babelify": "^7.2.0",
     "browserify": "^13.1.0",
+    "buble": "^0.15.2",
     "capsid": "^0.3.0",
     "chai": "^3.4.1",
     "codecov.io": "^0.1.6",
@@ -55,8 +51,8 @@
     "karma-coverage": "^1.0.0",
     "karma-mocha": "^1.0.1",
     "mocha": "^3.0.0",
-    "npm-run-all": "^4.0.1",
     "rimraf": "^2.5.1",
+    "rollup": "^0.41.4",
     "standard": "^8.0.0",
     "uglify-js": "^2.6.4",
     "watchify": "^3.7.0"
@@ -67,15 +63,11 @@
     ]
   },
   "standard": {
-    "parser": "babel-eslint",
     "env": [
-      "browser"
+      "browser",
+      "mocha"
     ],
     "globals": [
-      "before",
-      "beforeEach",
-      "describe",
-      "it",
       "expect",
       "$"
     ]

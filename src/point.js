@@ -1,9 +1,10 @@
-const { DIRS: { UP, LEFT, RIGHT, DOWN } } = require('./const')
+import { DIRS } from './const/index'
+const { UP, LEFT, RIGHT, DOWN } = DIRS
 
 /**
  * The model of the positions of points in 2-dimensional space.
  */
-class Point {
+export default class Point {
   /**
    * @param {number} x The x
    * @param {number} y The y
@@ -70,5 +71,3 @@ class Point {
     return UP
   }
 }
-
-module.exports = Point
