@@ -18,5 +18,9 @@ exports.Prebody = require('./prebody')
 exports.Rect = require('./rect')
 
 const decorators = require('./decorators')
-exports.decorators = decorators
-Object.keys(decorators).forEach(key => { exports[key] = exports.decorators[key] })
+exports.animation = decorators.animation
+exports.height = decorators.animation
+exports.width = decorators.width
+exports.margin = decorators.margin
+exports.ratio = decorators.ratio
+exports.transition = decorators.transition
