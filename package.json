@@ -57,11 +57,6 @@
     "uglify-js": "^2.6.4",
     "watchify": "^3.7.0"
   },
-  "babel": {
-    "presets": [
-      "es2015"
-    ]
-  },
   "standard": {
     "env": [
       "browser",
