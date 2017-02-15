@@ -195,6 +195,8 @@ export default class Prebody extends Being {
    * @return {Promise}
    */
   engage (duration) {
+    const originalTransitionDuration = this.el.style.transitionDuration
+
     duration = ifNumElse(duration, applyIfFunction(this, this.defaultTransitionDuration) || DEFAULT_TRANSITION_DURATION)
 
     this.elem.css('transition-duration', duration + 'ms')
@@ -205,6 +207,7 @@ export default class Prebody extends Being {
     this.updateOffset()
 
     return wait(duration)
+      .then(() => { this.el.style.transitionDuration = originalTransitionDuration })
   }
 
   /**

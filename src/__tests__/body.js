@@ -130,6 +130,16 @@ describe('Body', () => {
 
       expect(body.el.style.transitionDuration).to.equal('500ms')
     })
+
+    it('restore original transition-duration after the method execution', () => {
+      const body = make('my-body', div()[0])
+
+      body.el.style.transitionDuration = '978ms'
+
+      body.engage(100).then(() => {
+        expect(body.el.style.transitionDuration).to.equal('978ms')
+      })
+    })
   })
 
   describe('moveToX', () => {
