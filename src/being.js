@@ -1,4 +1,5 @@
 import wait from './wait'
+import reflow from './reflow'
 import { applyIfFunction, ifNumElse, triggerNoBubble } from './util/index'
 
 const SHOWING_CLASS = 'showing'
@@ -89,6 +90,9 @@ export default class Being {
    * @return {Promise}
    */
   hide (dur) {
+    this.el.style.transitionDuration = `${ifNumElse(dur)}ms`
+    reflow(this.el)
+
     return toggleClassBeforeAfter(this.el, SHOWN_CLASS, SHOWING_CLASS, false, () => triggerNoBubbleBeforeAfter(this.el, HIDING_EVENT, HIDDEN_EVENT, () => this.__hide(dur)))
   }
 
