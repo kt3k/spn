@@ -1,6 +1,6 @@
 # npm
 /node_modules
-npm-debug.log
+/npm-debug.log
 
 # coverage
 /coverage
@@ -9,6 +9,3 @@ npm-debug.log
 /lib
 /spn.js
 /spn.min.js
-
-# doc
-/doc
