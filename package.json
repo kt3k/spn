@@ -10,7 +10,8 @@
     "doc": "esdoc -c esdoc.json",
     "codecov": "cat coverage/*/lcov.info | codecov",
     "dist": "rollup -f umd -n spn src/index.js | buble | tee spn.js | uglifyjs -m -c > spn.min.js",
-    "prepublish": "npm run clean && npm run dist"
+    "prepublish": "npm run clean && npm run dist",
+    "precommit": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -69,6 +70,13 @@
     "globals": [
       "expect",
       "$"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --single-quote --no-semi --write",
+      "standard --fix",
+      "git add"
     ]
   }
 }
