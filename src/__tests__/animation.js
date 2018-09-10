@@ -28,7 +28,7 @@ describe('Animation', () => {
 
       anim.apply(elem)
 
-      expect(elem.css('-webkit-animation')).to.equal('foo 400ms ease 0s 1 normal none running')
+      expect(/^foo 400ms/.test(elem.css('-webkit-animation'))).to.equal(true)
     })
   })
 })
