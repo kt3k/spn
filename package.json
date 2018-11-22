@@ -39,7 +39,7 @@
     "babelify": "^10.0.0",
     "browserify": "^16.2.2",
     "buble": "^0.19.3",
-    "capsid": "^0.27.2",
+    "capsid": "^0.28.1",
     "chai": "^4.0.1",
     "codecov.io": "^0.1.6",
     "dom-gen": "^2.1.0",
