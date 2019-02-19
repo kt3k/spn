@@ -58,7 +58,7 @@
     "rollup": "^1.1.2",
     "standard": "^12.0.1",
     "uglify-js": "^3.0.0",
-    "watchify": "^3.7.0"
+    "watchify": "^3.11.1"
   },
   "standard": {
     "env": [
